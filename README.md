@@ -85,10 +85,22 @@ domain sebenarnya setelah situs dipasang.
 
 ## Menaikkan ke internet (Vercel)
 
-Situs sudah tayang di **<https://eco-enzyme-lamtim.vercel.app>**
-(proyek Vercel: `yennthekid/eco-enzyme-lamtim`).
+Situs tayang di **<https://eco-enzyme-lamtim.vercel.app>**
+(proyek Vercel `yennthekid/eco-enzyme-lamtim`, tersambung ke repositori
+GitHub `y3nnthekid-prog/eco-enzyme-lamtim`).
 
-Untuk menayangkan perubahan berikutnya — misalnya setelah menambah berita:
+Penayangannya otomatis — cukup dorong perubahan ke GitHub:
+
+```bash
+git add -A
+git commit -m "Tambah berita pelatihan Desa Sukadana"
+git push
+```
+
+- Dorongan ke cabang `main` langsung tayang di alamat utama.
+- Dorongan ke cabang lain menghasilkan alamat pratinjau untuk diperiksa dulu.
+
+Bila sewaktu-waktu perlu menayangkan tanpa lewat GitHub:
 
 ```bash
 npx vercel deploy --prod
