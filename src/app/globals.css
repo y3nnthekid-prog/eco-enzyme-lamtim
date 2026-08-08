@@ -1,0 +1,200 @@
+@import "tailwindcss";
+
+/* ============================================================
+   Eco Enzyme Nusantara — Kab. Lampung Timur
+   Palet warna diambil langsung dari logo komunitas:
+   daun hijau, tetes air biru, dan panah daur ulang oranye.
+   ============================================================ */
+
+@theme {
+  --color-daun-50: #f2faec;
+  --color-daun-100: #e0f4d3;
+  --color-daun-200: #c3e9ab;
+  --color-daun-300: #9bda78;
+  --color-daun-400: #6cc24a;
+  --color-daun-500: #4ea832;
+  --color-daun-600: #3a8726;
+  --color-daun-700: #2c6a20;
+  --color-daun-800: #23531d;
+  --color-daun-900: #1c421a;
+
+  --color-air-50: #eef8fe;
+  --color-air-100: #d6eefc;
+  --color-air-200: #b0e0fa;
+  --color-air-300: #78cbf5;
+  --color-air-400: #38aeeb;
+  --color-air-500: #1b8fd1;
+  --color-air-600: #0f72b0;
+  --color-air-700: #0f5c8f;
+  --color-air-800: #124e76;
+  --color-air-900: #144263;
+
+  --color-surya-50: #fef8ec;
+  --color-surya-100: #fbecc9;
+  --color-surya-200: #f7d68e;
+  --color-surya-300: #f3ba53;
+  --color-surya-400: #f2911b;
+  --color-surya-500: #e0740f;
+  --color-surya-600: #ba5309;
+  --color-surya-700: #953c0d;
+  --color-surya-800: #7b3011;
+  --color-surya-900: #672812;
+
+  --color-tinta: #16241c;
+  --color-tinta-lembut: #4b5c50;
+  --color-krem: #fbfcf8;
+
+  --font-display: var(--font-nunito), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+
+  --radius-4xl: 2rem;
+  --radius-5xl: 2.5rem;
+
+  --shadow-lembut: 0 1px 2px rgb(22 36 28 / 0.04), 0 8px 24px -12px rgb(22 36 28 / 0.18);
+  --shadow-angkat: 0 2px 4px rgb(22 36 28 / 0.05), 0 18px 40px -18px rgb(22 36 28 / 0.25);
+}
+
+/* ---- Pengatur ukuran teks (aksesibilitas untuk lansia & anak) ---- */
+:root {
+  --ukuran-dasar: 17px;
+}
+html[data-teks="besar"] {
+  --ukuran-dasar: 19.5px;
+}
+html[data-teks="sangat-besar"] {
+  --ukuran-dasar: 22px;
+}
+
+html {
+  font-size: var(--ukuran-dasar);
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  background-color: var(--color-krem);
+  color: var(--color-tinta);
+  font-family: var(--font-sans);
+  line-height: 1.75;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+::selection {
+  background-color: var(--color-daun-200);
+  color: var(--color-daun-900);
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-air-500);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ---- Pola latar organik ---- */
+.pola-daun {
+  background-image:
+    radial-gradient(circle at 12% 18%, rgb(108 194 74 / 0.16) 0, transparent 42%),
+    radial-gradient(circle at 88% 8%, rgb(27 143 209 / 0.14) 0, transparent 40%),
+    radial-gradient(circle at 70% 92%, rgb(242 145 27 / 0.12) 0, transparent 45%);
+}
+
+.pola-titik {
+  background-image: radial-gradient(rgb(108 194 74 / 0.28) 1.2px, transparent 1.2px);
+  background-size: 18px 18px;
+}
+
+/* ---- Isi artikel berita (hasil render Markdown) ---- */
+.artikel {
+  font-size: 1.0625rem;
+  line-height: 1.85;
+}
+.artikel > * + * {
+  margin-top: 1.15em;
+}
+.artikel h2 {
+  font-size: 1.6rem;
+  margin-top: 2.2rem;
+  color: var(--color-daun-800);
+}
+.artikel h3 {
+  font-size: 1.25rem;
+  margin-top: 1.8rem;
+  color: var(--color-daun-800);
+}
+.artikel ul,
+.artikel ol {
+  padding-left: 1.5rem;
+  display: grid;
+  gap: 0.45rem;
+}
+.artikel ul {
+  list-style: disc;
+}
+.artikel ol {
+  list-style: decimal;
+}
+.artikel li::marker {
+  color: var(--color-daun-500);
+  font-weight: 700;
+}
+.artikel a {
+  color: var(--color-air-700);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.artikel blockquote {
+  border-left: 5px solid var(--color-daun-300);
+  background: var(--color-daun-50);
+  padding: 1rem 1.25rem;
+  border-radius: 0 1rem 1rem 0;
+  font-style: italic;
+  color: var(--color-daun-900);
+}
+.artikel img {
+  border-radius: 1.25rem;
+  width: 100%;
+  height: auto;
+}
+.artikel strong {
+  color: var(--color-daun-900);
+  font-weight: 700;
+}
+.artikel hr {
+  border-color: var(--color-daun-100);
+  margin-block: 2rem;
+}
+
+@media print {
+  .tanpa-cetak {
+    display: none !important;
+  }
+}
