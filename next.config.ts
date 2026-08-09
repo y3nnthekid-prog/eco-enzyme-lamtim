@@ -20,36 +20,13 @@ const DOMAIN_ALIHAN = [
 ];
 
 /**
- * Content-Security-Policy.
+ * Header keamanan statis untuk setiap permintaan.
  *
- * Hanya sumber dari situs ini sendiri yang boleh dimuat, ditambah domain
- * @vercel/analytics. Ini menutup jalur XSS yang paling umum — termasuk bila
- * kelak ada berkas markdown yang memuat HTML mentah, skrip di dalamnya tidak
- * akan berjalan.
- *
- *   - font di-self-host oleh next/font, jadi cukup 'self'.
- *   - 'unsafe-inline' pada script masih diperlukan karena ada <script> inline
- *     pengatur ukuran teks di <head> dan skrip bootstrap Next.js. Penguatan
- *     berikutnya: ganti dengan nonce agar 'unsafe-inline' bisa dicabut.
- *   - frame-ancestors 'none' mencegah situs disematkan di iframe.
+ * Content-Security-Policy TIDAK di sini — ia butuh nonce acak per-permintaan,
+ * jadi disusun di `src/proxy.ts`. Header di bawah ini bernilai tetap sehingga
+ * cocok dipasang di tingkat konfigurasi.
  */
-const CSP = [
-  "default-src 'self'",
-  "base-uri 'self'",
-  "object-src 'none'",
-  "frame-ancestors 'none'",
-  "form-action 'self'",
-  "img-src 'self' data: https:",
-  "font-src 'self' data:",
-  "style-src 'self' 'unsafe-inline'",
-  "script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com",
-  "connect-src 'self' https://va.vercel-scripts.com https://vitals.vercel-insights.com",
-  "upgrade-insecure-requests",
-].join("; ");
-
-/** Header keamanan yang dikirim untuk setiap permintaan. */
 const securityHeaders = [
-  { key: "Content-Security-Policy", value: CSP },
   {
     // Paksa HTTPS selama dua tahun, termasuk subdomain. 'preload' adalah
     // komitmen: sekali masuk daftar preload browser, sulit dibatalkan.

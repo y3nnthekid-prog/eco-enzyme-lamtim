@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Nunito, Plus_Jakarta_Sans } from "next/font/google";
+import { headers } from "next/headers";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { KepalaSitus } from "@/components/kepala-situs";
@@ -64,7 +65,11 @@ const skripUkuranTeks = `
 })();
 `;
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default async function RootLayout({ children }: LayoutProps<"/">) {
+  // Nonce dipasang oleh src/proxy.ts. Skrip inline pengatur ukuran teks harus
+  // membawanya, kalau tidak akan diblokir CSP.
+  const nonce = (await headers()).get("x-nonce") ?? undefined;
+
   return (
     <html
       lang="id"
@@ -72,7 +77,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       suppressHydrationWarning
     >
       <head>
-        <script dangerouslySetInnerHTML={{ __html: skripUkuranTeks }} />
+        <script nonce={nonce} dangerouslySetInnerHTML={{ __html: skripUkuranTeks }} />
       </head>
       <body className="flex min-h-full flex-col">
         <a
