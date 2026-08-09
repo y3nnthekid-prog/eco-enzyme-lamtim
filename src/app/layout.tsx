@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Nunito, Plus_Jakarta_Sans } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { KepalaSitus } from "@/components/kepala-situs";
 import { KakiSitus } from "@/components/kaki-situs";
@@ -85,6 +86,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           {children}
         </main>
         <KakiSitus />
+        <Analytics />
       </body>
     </html>
   );
