@@ -5,6 +5,7 @@ import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { KepalaSitus } from "@/components/kepala-situs";
 import { KakiSitus } from "@/components/kaki-situs";
+import { GulirJangkar } from "@/components/gulir-jangkar";
 import { situs } from "@/lib/situs";
 
 const nunito = Nunito({
@@ -91,6 +92,7 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
           {children}
         </main>
         <KakiSitus />
+        <GulirJangkar />
         <Analytics />
       </body>
     </html>

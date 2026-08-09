@@ -45,14 +45,32 @@ export function Muncul({
 
     const pengamat = new IntersectionObserver(
       (entri) => {
-        if (entri[0].isIntersecting) {
+        const e = entri[0];
+        // Selain saat masuk layar, elemen juga langsung ditampilkan bila
+        // posisinya sudah terlewat di atas. Ini terjadi ketika pembaca
+        // melompat lewat tautan jangkar atau tombol kembali: bagian yang
+        // dilewati tidak pernah bersinggungan dengan layar, dan tanpa
+        // pengecualian ini ia akan tetap tersembunyi.
+        if (e.isIntersecting || e.boundingClientRect.top < 0) {
           setTampil(true);
           pengamat.disconnect();
         }
       },
-      // Dimunculkan sedikit sebelum benar-benar masuk layar, supaya saat
-      // pembaca sampai ke sana isinya sudah selesai beranimasi.
-      { rootMargin: "0px 0px -12% 0px", threshold: 0.05 },
+      {
+        // Batas bawah -12%: dimunculkan sedikit sebelum benar-benar masuk
+        // layar, supaya saat pembaca sampai ke sana animasinya sudah selesai.
+        //
+        // Batas atas dilebarkan sangat jauh ke arah atas dengan sengaja.
+        // IntersectionObserver hanya memanggil balik saat persinggungan
+        // BERUBAH; bila pembaca melompat jauh — lewat tautan jangkar atau
+        // tombol kembali — elemen yang dilewati berpindah dari "di bawah
+        // layar" ke "di atas layar" tanpa pernah bersinggungan, sehingga tidak
+        // ada panggilan balik dan elemen itu tertinggal tersembunyi
+        // selamanya. Dengan batas atas selebar ini, apa pun yang berada di
+        // atas layar dihitung bersinggungan dan langsung ditampilkan.
+        rootMargin: "9999px 0px -12% 0px",
+        threshold: 0.05,
+      },
     );
     pengamat.observe(el);
     return () => pengamat.disconnect();

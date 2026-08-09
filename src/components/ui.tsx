@@ -46,7 +46,10 @@ export function Bagian({
     krem: "bg-surya-50",
   }[latar];
   return (
-    <section id={id} className={`scroll-mt-28 py-14 sm:py-20 ${gaya} ${className}`}>
+    // Tanpa scroll-mt: jarak dari header sudah diatur sekali saja lewat
+    // `scroll-padding-top` pada <html>. Dipasang di dua tempat, offsetnya
+    // bertumpuk dan judul tujuan mendarat jauh di bawah header.
+    <section id={id} className={`py-14 sm:py-20 ${gaya} ${className}`}>
       {children}
     </section>
   );

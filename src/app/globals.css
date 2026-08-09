@@ -79,15 +79,22 @@ html[data-teks="sangat-besar"] {
 
 html {
   font-size: var(--ukuran-dasar);
-  scroll-behavior: smooth;
-  scroll-padding-top: 6rem;
+  /*
+   * `scroll-behavior: smooth` SENGAJA tidak dipasang di sini.
+   *
+   * Bila dipasang, seluruh gulir programatik ikut beranimasi — termasuk
+   * gulir-ke-atas milik router Next.js saat berpindah halaman. Animasi
+   * gulir yang lama dan navigasi yang baru lalu saling bertabrakan, dan
+   * halaman mendarat di posisi tengah, bukan di puncak.
+   *
+   * Gulir mulus untuk tautan jangkar (#) ditangani per-klik di
+   * src/components/gulir-jangkar.tsx, sehingga tidak menyentuh navigasi.
+   */
+  scroll-padding-top: 6rem; /* agar judul tidak tertutup header lengket */
   -webkit-text-size-adjust: 100%;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
   *,
   *::before,
   *::after {

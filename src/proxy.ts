@@ -31,10 +31,17 @@ export function proxy(request: NextRequest) {
     // Gaya inline dari komponen tetap diizinkan; risiko XSS lewat style jauh
     // lebih kecil daripada lewat script.
     "style-src 'self' 'unsafe-inline'",
-    // Kunci utama. 'self' menutupi skrip Next & Vercel Analytics (di-proxy
-    // same-origin); nonce menutupi skrip inline yang sah. 'unsafe-eval' hanya
-    // di dev karena React memakainya untuk pesan galat yang lebih kaya.
-    `script-src 'self' 'nonce-${nonce}'${isDev ? " 'unsafe-eval'" : ""}`,
+    // Kunci utama. 'self' menutupi skrip Next & Vercel Analytics (di produksi
+    // skripnya disajikan same-origin); nonce menutupi skrip inline yang sah.
+    //
+    // Dua kelonggaran khusus dev, tidak ikut ke produksi:
+    // - 'unsafe-eval' dipakai React untuk pesan galat yang lebih kaya.
+    // - va.vercel-scripts.com: di dev, Vercel Analytics memuat script.debug.js
+    //   dari domainnya sendiri, bukan same-origin seperti di produksi. Tanpa
+    //   ini konsol dev dipenuhi galat CSP yang menutupi galat sungguhan.
+    `script-src 'self' 'nonce-${nonce}'${
+      isDev ? " 'unsafe-eval' https://va.vercel-scripts.com" : ""
+    }`,
     // ws:/http: hanya di dev untuk hot-reload; di produksi cukup same-origin.
     `connect-src 'self' https://va.vercel-scripts.com https://vitals.vercel-insights.com${
       isDev ? " ws: http:" : ""
