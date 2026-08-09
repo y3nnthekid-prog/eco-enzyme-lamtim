@@ -1,16 +1,30 @@
 import type { NextConfig } from "next";
 
+/** Alamat resmi situs. Semua alamat lain dialihkan ke sini. */
+const DOMAIN_UTAMA = "ecoenzymelamtim.com";
+
 /**
- * Situs punya dua domain: eenlamtim.com (utama) dan eenlamtim.site.
- * Semua kunjungan ke .site dialihkan permanen ke .com supaya mesin pencari
- * tidak menganggapnya dua situs berbeda dengan isi yang sama.
+ * Alamat lama dan alamat cadangan. Semuanya dialihkan permanen ke
+ * DOMAIN_UTAMA supaya mesin pencari tidak menganggapnya beberapa situs
+ * berbeda dengan isi yang sama, dan tautan yang sudah terlanjur
+ * disebarkan tidak menjadi mati.
  */
+const DOMAIN_ALIHAN = [
+  `www.${DOMAIN_UTAMA}`,
+  "ecoenzymelamtim.site",
+  "www.ecoenzymelamtim.site",
+  "eenlamtim.com",
+  "www.eenlamtim.com",
+  "eenlamtim.site",
+  "www.eenlamtim.site",
+];
+
 const nextConfig: NextConfig = {
   async redirects() {
-    return ["eenlamtim.site", "www.eenlamtim.site"].map((host) => ({
+    return DOMAIN_ALIHAN.map((host) => ({
       source: "/:jalur*",
       has: [{ type: "host" as const, value: host }],
-      destination: "https://eenlamtim.com/:jalur*",
+      destination: `https://${DOMAIN_UTAMA}/:jalur*`,
       permanent: true,
     }));
   },

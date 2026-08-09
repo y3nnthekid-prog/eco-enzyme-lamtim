@@ -85,21 +85,27 @@ domain sebenarnya setelah situs dipasang.
 
 ## Menaikkan ke internet (Vercel)
 
-Situs tayang di **<https://eenlamtim.com>**
+Situs tayang di **<https://ecoenzymelamtim.com>**
 (proyek Vercel `yennthekid/eco-enzyme-lamtim`, tersambung ke repositori
 GitHub `y3nnthekid-prog/eco-enzyme-lamtim`).
 
-Alamat lain yang mengarah ke situs yang sama:
+Alamat lain semuanya dialihkan permanen ke alamat utama:
 
-| Alamat                        | Perilaku                          |
-| ----------------------------- | --------------------------------- |
-| `eenlamtim.com`               | alamat utama                      |
-| `www.eenlamtim.com`           | dialihkan ke alamat utama         |
-| `eenlamtim.site`              | dialihkan ke `eenlamtim.com`      |
-| `www.eenlamtim.site`          | dialihkan ke `eenlamtim.com`      |
-| `eco-enzyme-lamtim.vercel.app`| tetap hidup sebagai cadangan      |
+| Alamat                          | Perilaku                     |
+| ------------------------------- | ---------------------------- |
+| `ecoenzymelamtim.com`           | **alamat utama**             |
+| `www.ecoenzymelamtim.com`       | dialihkan ke alamat utama    |
+| `ecoenzymelamtim.site`          | dialihkan ke alamat utama    |
+| `www.ecoenzymelamtim.site`      | dialihkan ke alamat utama    |
+| `eenlamtim.com`                 | dialihkan ke alamat utama    |
+| `www.eenlamtim.com`             | dialihkan ke alamat utama    |
+| `eenlamtim.site`                | dialihkan ke alamat utama    |
+| `www.eenlamtim.site`            | dialihkan ke alamat utama    |
+| `eco-enzyme-lamtim.vercel.app`  | tetap hidup sebagai cadangan |
 
-Pengalihan dari `.site` diatur di `next.config.ts`.
+Daftar pengalihan diatur di `next.config.ts` — ubah `DOMAIN_UTAMA` dan
+`DOMAIN_ALIHAN` di sana bila alamat resminya berganti lagi, lalu sesuaikan
+juga `situs.url` di `src/lib/situs.ts`.
 
 Penayangannya otomatis — cukup dorong perubahan ke GitHub:
 
