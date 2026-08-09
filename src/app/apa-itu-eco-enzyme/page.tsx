@@ -55,7 +55,7 @@ export default function ApaItuEcoEnzyme() {
             <BahanKartu
               ikon={<Candy size={30} aria-hidden />}
               judul="Gula"
-              isi="Gula merah atau molase (tetes tebu). Bukan gula pasir putih."
+              isi="Molase (tetes tebu) atau gula merah — tebu, aren, kelapa, lontar. Gula pasir boleh bila keduanya tidak ada."
               warna="surya"
             />
             <BahanKartu

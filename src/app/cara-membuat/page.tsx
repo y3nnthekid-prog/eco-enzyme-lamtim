@@ -264,29 +264,34 @@ export default function CaraMembuat() {
             <div className="grid gap-6 md:grid-cols-2">
               <Kartu warna="surya">
                 <h3 className="text-2xl text-surya-900">Gula</h3>
-                <div className="mt-4">
-                  <DaftarCeklis
-                    butir={[
-                      <>
-                        <strong>Molase</strong> (tetes tebu) — paling murah karena
-                        merupakan limbah produksi gula putih, dan menghasilkan eco
-                        enzyme paling pekat
-                      </>,
-                      <>
-                        <strong>Gula merah</strong> — gula tebu, aren, kelapa,
-                        atau lontar
-                      </>,
-                    ]}
-                  />
-                </div>
-                <p className="mt-5 rounded-2xl bg-white px-5 py-4 text-tinta">
-                  <strong>Gula pasir putih</strong> hanya dipakai kalau gula
-                  merah dan molase benar-benar tidak tersedia. Boleh, tapi
-                  hasilnya tidak maksimal.
+                <p className="mt-2 text-tinta-lembut">
+                  Semua boleh dipakai. Urutkan dari yang paling atas — kalau
+                  tidak ada, turun ke bawahnya.
                 </p>
-                <p className="mt-3 rounded-2xl bg-white px-5 py-4 text-sm text-tinta">
+                <ol className="mt-5 grid gap-3">
+                  <PilihanGula
+                    urutan={1}
+                    nama="Molase (tetes tebu)"
+                    isi="Paling dianjurkan. Murah karena merupakan limbah produksi gula putih, dan menghasilkan eco enzyme paling pekat."
+                    mutu="terbaik"
+                  />
+                  <PilihanGula
+                    urutan={2}
+                    nama="Gula merah"
+                    isi="Gula tebu, aren, kelapa, atau lontar. Sama baiknya untuk pemula."
+                    mutu="terbaik"
+                  />
+                  <PilihanGula
+                    urutan={3}
+                    nama="Gula pasir putih"
+                    isi="Dipakai bila molase dan gula merah tidak tersedia. Tetap jadi, hanya saja kualitas hasilnya tidak maksimal."
+                    mutu="darurat"
+                  />
+                </ol>
+                <p className="mt-5 rounded-2xl bg-white px-5 py-4 text-sm text-tinta">
                   Hati-hati saat membeli gula merah di pasaran — ada gula merah
-                  palsu yang kualitasnya sangat buruk.
+                  palsu yang kualitasnya sangat buruk. Kalau ragu, gula pasir
+                  yang jelas asli justru lebih aman dipakai.
                 </p>
               </Kartu>
 
@@ -727,6 +732,51 @@ export default function CaraMembuat() {
 }
 
 /* -------------------------------------------------------- pendukung ---- */
+
+function PilihanGula({
+  urutan,
+  nama,
+  isi,
+  mutu,
+}: {
+  urutan: number;
+  nama: string;
+  isi: string;
+  mutu: "terbaik" | "darurat";
+}) {
+  const terbaik = mutu === "terbaik";
+  return (
+    <li className="flex gap-4 rounded-3xl bg-white p-5">
+      <span
+        className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full font-display font-black ${
+          terbaik
+            ? "bg-daun-500 text-white"
+            : "bg-surya-200 text-surya-900"
+        }`}
+        aria-hidden
+      >
+        {urutan}
+      </span>
+      <span>
+        <span className="flex flex-wrap items-center gap-2">
+          <span className="font-display text-lg font-extrabold text-tinta">
+            {nama}
+          </span>
+          <span
+            className={`rounded-full px-3 py-0.5 text-xs font-extrabold tracking-wide uppercase ${
+              terbaik
+                ? "bg-daun-100 text-daun-800"
+                : "bg-surya-100 text-surya-800"
+            }`}
+          >
+            {terbaik ? "Dianjurkan" : "Kalau terpaksa"}
+          </span>
+        </span>
+        <span className="mt-1 block text-tinta-lembut">{isi}</span>
+      </span>
+    </li>
+  );
+}
 
 function CaraModifikasi({
   nomor,
