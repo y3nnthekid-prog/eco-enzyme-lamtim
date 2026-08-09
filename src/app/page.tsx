@@ -43,25 +43,11 @@ export default function Beranda() {
               </p>
               <h1 className="masuk mt-6 text-[2.75rem] leading-[1.03] tracking-[-0.03em] text-daun-900 sm:text-6xl lg:text-[4.25rem] [--jeda:70ms]">
                 Sampah dapur bisa jadi{" "}
-                <em className="relative not-italic text-surya-500">
-                  cairan serba guna
-                  {/* Garis bawah tulisan tangan, digambar sekali saat halaman
-                      dibuka. Menandai frasa kunci tanpa perlu stabilo blok. */}
-                  <svg
-                    className="coret absolute -bottom-2 left-0 h-[0.42em] w-full text-surya-300/80 sm:-bottom-3"
-                    viewBox="0 0 320 22"
-                    fill="none"
-                    preserveAspectRatio="none"
-                    aria-hidden
-                  >
-                    <path
-                      d="M4 15.5C58 7.5 133 4 190 6.5c40 1.8 89 5.5 126 11"
-                      stroke="currentColor"
-                      strokeWidth="5"
-                      strokeLinecap="round"
-                    />
-                  </svg>
-                </em>
+                {/* Warna frasa ini mengalir pelan menembus oranye, hijau, dan
+                    biru — tiga warna logo, sekaligus kiasan cairannya sendiri.
+                    Karena efeknya menempel pada teks, bukan elemen terpisah,
+                    frasa boleh pecah ke baris mana pun tanpa merusak apa pun. */}
+                <em className="teks-cairan not-italic">cairan serba guna</em>
               </h1>
               <p className="masuk mt-8 max-w-xl text-lg leading-relaxed text-tinta-lembut sm:text-xl [--jeda:140ms]">
                 Namanya <strong className="text-tinta">eco enzyme</strong>. Cuma

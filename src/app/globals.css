@@ -159,6 +159,70 @@ p {
   background-size: 22px 22px;
 }
 
+/* ============================================================
+   Teks mengalir
+   Frasa kunci di hero diwarnai gradien yang bergeser sangat pelan
+   menembus oranye, hijau, dan biru — tiga warna logo, sekaligus
+   kiasan cairan eco enzyme itu sendiri.
+
+   Dipilih menggantikan garis bawah SVG karena efeknya melekat pada
+   teks: frasa boleh pecah ke baris berapa pun tanpa perlu diukur.
+   ============================================================ */
+
+/* Warna dasar. Berlaku juga sebagai cadangan bila peramban tidak
+   mengenal background-clip, sehingga teks tidak pernah jadi tak
+   terlihat. */
+.teks-cairan {
+  color: var(--color-surya-600);
+}
+
+@supports (background-clip: text) or (-webkit-background-clip: text) {
+  .teks-cairan {
+    /*
+     * Setiap perhentian warna wajib berkontras minimal 3:1 terhadap latar
+     * krem, ambang WCAG untuk teks berukuran besar. Tingkat 400 dan 500 yang
+     * lebih cerah sempat dipakai lalu dibuang: surya-400 hanya 2,31:1 dan
+     * daun-500 hanya 2,92:1 — cukup untuk hiasan, tidak untuk dibaca.
+     *
+     * Warna pertama dan terakhir sengaja sama supaya sambungan gulirannya
+     * tidak terlihat saat berulang.
+     */
+    background-image: linear-gradient(
+      92deg,
+      var(--color-surya-600) 0%,
+      var(--color-surya-500) 14%,
+      var(--color-daun-600) 33%,
+      var(--color-air-600) 50%,
+      var(--color-daun-600) 67%,
+      var(--color-surya-500) 86%,
+      var(--color-surya-600) 100%
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    /* Sengaja TIDAK memakai box-decoration-break: clone. Dengan setelan
+       bawaan, gradien dihitung dari kotak utuh frasa lalu tiap baris
+       menampilkan potongannya masing-masing — warnanya mengalir menyambung
+       dari baris pertama ke baris kedua. Dengan clone, tiap baris mengulang
+       gradien penuh dan hasilnya terbaca seperti pelangi yang patah. */
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Satu putaran penuh = dua kali lebar wadah, persis selebar satu
+     ubin gradien, jadi perulangannya mulus tanpa lompatan. */
+  .teks-cairan {
+    animation: alir 14s linear infinite;
+  }
+  @keyframes alir {
+    to {
+      background-position: 200% center;
+    }
+  }
+}
+
 /* ---- Kicker: pengganti "pil label" yang seragam di tiap seksi ---- */
 .kicker {
   display: flex;
@@ -199,18 +263,6 @@ p {
       opacity 0.7s var(--gerak-halus),
       transform 0.7s var(--gerak-halus);
     transition-delay: var(--jeda, 0ms);
-  }
-
-  /* Garis bawah tulisan tangan di hero, digambar sekali dari kiri ke kanan */
-  .coret path {
-    stroke-dasharray: 340;
-    stroke-dashoffset: 340;
-    animation: gambar-coret 1s var(--gerak-halus) 0.75s forwards;
-  }
-  @keyframes gambar-coret {
-    to {
-      stroke-dashoffset: 0;
-    }
   }
 
   /* Masuk saat halaman dimuat, dipakai di bagian hero */
