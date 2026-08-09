@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Mail, Sprout } from "lucide-react";
 import { navigasi, situs } from "@/lib/situs";
+import { TombolWhatsApp } from "@/components/tombol-whatsapp";
 
 export function KakiSitus() {
   return (
@@ -60,15 +61,19 @@ export function KakiSitus() {
           </h2>
           <p className="mt-4 text-daun-100">
             Ingin mengadakan pelatihan eco enzyme di desa, sekolah, atau kantor
-            Anda? Atau punya kabar kegiatan untuk dimuat di sini?
+            Anda? Bingung dengan larutan yang sedang difermentasi? Atau punya
+            kabar kegiatan untuk dimuat di sini?
           </p>
-          <a
-            href={`mailto:${situs.email}`}
-            className="mt-4 inline-flex max-w-full items-center gap-2 rounded-3xl bg-surya-400 px-5 py-3 font-bold break-all text-surya-900 transition-colors hover:bg-surya-300"
-          >
-            <Mail size={20} className="shrink-0" aria-hidden />
-            {situs.email}
-          </a>
+          <div className="mt-5 grid gap-3">
+            <TombolWhatsApp pesan="Halo, saya ingin bertanya tentang eco enzyme di Lampung Timur." />
+            <a
+              href={`mailto:${situs.email}`}
+              className="inline-flex max-w-full items-center gap-2 rounded-3xl bg-surya-400 px-5 py-3 font-bold break-all text-surya-900 transition-colors hover:bg-surya-300"
+            >
+              <Mail size={20} className="shrink-0" aria-hidden />
+              {situs.email}
+            </a>
+          </div>
           <p className="mt-6 text-sm text-daun-200">
             Materi edukasi di situs ini bersumber dari{" "}
             <em>Modul Kelas Belajar Eco-Enzyme</em> Ngajaga Bumi dan Persatuan

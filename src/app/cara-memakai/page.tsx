@@ -226,6 +226,16 @@ export default function CaraMemakai() {
         <Wadah>
           <JudulBagian label="Keamanan" judul="Hal yang perlu diperhatikan" />
           <div className="mt-10 grid gap-6">
+            <Catatan jenis="penting" judul="Tidak untuk diminum">
+              <p>
+                Modul resmi Eco Enzyme Nusantara menegaskan:{" "}
+                <strong>
+                  eco enzyme hanya untuk pemakaian luar, tidak untuk dikonsumsi.
+                </strong>{" "}
+                Jangan diminum, dan jangan diberikan kepada anak untuk diminum.
+              </p>
+            </Catatan>
+
             <Catatan jenis="penting" judul="Untuk pemakaian yang menyentuh tubuh">
               <p>
                 Sebagian warga memakai eco enzyme untuk mandi, keramas, berkumur,

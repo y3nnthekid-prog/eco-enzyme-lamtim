@@ -13,10 +13,22 @@ const PRESET = [
 ];
 
 function angka(n: number): string {
-  const dibulatkan = Math.round(n * 10) / 10;
-  return dibulatkan
-    .toLocaleString("id-ID", { maximumFractionDigits: 1 })
-    .replace(/,0$/, "");
+  const dibulatkan = Math.round(n * 100) / 100;
+  return dibulatkan.toLocaleString("id-ID", { maximumFractionDigits: 2 });
+}
+
+/**
+ * Takaran kecil ditampilkan dalam gram/mililiter, bukan pecahan kilogram.
+ * Selain lebih mudah ditakar di dapur, ini juga menjaga perbandingan 1 : 3 : 10
+ * tetap terlihat benar — "0,1 kg gula dan 0,2 kg buah" akan tampak keliru,
+ * sedangkan "60 gram dan 180 gram" jelas tiga kali lipatnya.
+ */
+function berat(kg: number): string {
+  return kg < 1 ? `${Math.round(kg * 1000)} gram` : `${angka(kg)} kg`;
+}
+
+function volume(liter: number): string {
+  return liter < 1 ? `${Math.round(liter * 1000)} ml` : `${angka(liter)} liter`;
 }
 
 function hariIni(): string {
@@ -25,7 +37,7 @@ function hariIni(): string {
 
 function tambahHari(iso: string, hari: number): string {
   const t = new Date(`${iso}T00:00:00`);
-  if (Number.isNaN(t.getTime())) return "-";
+  if (Number.isNaN(t.getTime())) return "Isi dulu tanggal mulainya";
   t.setDate(t.getDate() + hari);
   return t.toLocaleDateString("id-ID", {
     weekday: "long",
@@ -168,28 +180,28 @@ export function KalkulatorTakaran() {
                 ikon={<Candy size={30} aria-hidden />}
                 bagian="1 bagian"
                 nama="Gula merah / molase"
-                nilai={`${angka(hasil.gula)} kg`}
+                nilai={berat(hasil.gula)}
                 warna="surya"
               />
               <HasilKartu
                 ikon={<Apple size={30} aria-hidden />}
                 bagian="3 bagian"
                 nama="Sisa buah & sayur"
-                nilai={`${angka(hasil.buah)} kg`}
+                nilai={berat(hasil.buah)}
                 warna="daun"
               />
               <HasilKartu
                 ikon={<Droplets size={30} aria-hidden />}
                 bagian="10 bagian"
                 nama="Air bersih"
-                nilai={`${angka(hasil.air)} liter`}
+                nilai={volume(hasil.air)}
                 warna="air"
               />
             </div>
 
             <div className="mt-5 grid gap-4 sm:grid-cols-2">
               <p className="rounded-3xl border-2 border-daun-100 bg-daun-50 p-5 text-tinta">
-                Sisakan <strong>{angka(hasil.sisaRuang)} liter</strong> ruang
+                Sisakan <strong>{volume(hasil.sisaRuang)}</strong> ruang
                 kosong di wadah (40%) supaya gas fermentasi punya tempat dan
                 wadah tidak meledak.
               </p>
@@ -212,12 +224,12 @@ export function KalkulatorTakaran() {
               <Jadwal
                 judul="Minggu ke-1"
                 tanggal={tambahHari(tanggal, 7)}
-                isi="Aduk larutan sekali. Buang gas bila wadah menggembung."
+                isi="Wadah bermulut kecil: buang gasnya. Wadah bermulut lebar: biarkan saja."
               />
               <Jadwal
                 judul="Minggu ke-3"
                 tanggal={tambahHari(tanggal, 21)}
-                isi="Periksa kondisi larutan. Perbaiki bila ada masalah."
+                isi="Periksa kondisi larutan dari luar. Perbaiki bila ada masalah."
               />
               <Jadwal
                 judul="Hari ke-30"

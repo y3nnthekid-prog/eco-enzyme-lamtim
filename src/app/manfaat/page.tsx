@@ -6,6 +6,7 @@ import {
   HeartPulse,
   Home,
   Leaf,
+  MapPin,
   Recycle,
   Shirt,
   Sprout,
@@ -194,6 +195,39 @@ export default function Manfaat() {
         </Wadah>
       </Bagian>
 
+      {/* ============================================ LAPANGAN ======== */}
+      <Bagian latar="hijau">
+        <Wadah lebar="lebar">
+          <JudulBagian
+            label="Bukti di lapangan"
+            judul="Sudah dicoba di berbagai daerah"
+            ringkasan="Bukan sekadar teori. Ini beberapa penerapan yang tercatat dalam modul resmi Eco Enzyme Nusantara."
+          />
+          <ul className="mt-10 grid gap-5 md:grid-cols-2">
+            <LapanganKartu
+              tempat="Embung Langensari, Yogyakarta"
+              apa="Penjernihan embung"
+              isi="Eco enzyme dituangkan sebanyak 4 kali, seminggu sekali, masing-masing 20 liter."
+            />
+            <LapanganKartu
+              tempat="Batam — Pak Joni Oei"
+              apa="Penjernihan kolam air hujan"
+              isi="Takaran 1 : 50.000 hingga 1 : 100.000, dituang sebulan sekali. Total 1.200 liter selama 6 bulan, dan air kolamnya berangsur jernih."
+            />
+            <LapanganKartu
+              tempat="TPA Banyuroto, Kulon Progo"
+              apa="Mengurangi bau tempat pembuangan"
+              isi="Sepuluh sampai lima belas menit setelah penyemprotan, bau di sekitar TPA hilang dan udara terasa lebih segar."
+            />
+            <LapanganKartu
+              tempat="Lahan bekas pabrik plastik"
+              apa="Memulihkan tanah gersang"
+              isi="Lahan gersang berbatu yang dirawat dengan eco enzyme akhirnya bisa ditumbuhi tanaman kacang panjang."
+            />
+          </ul>
+        </Wadah>
+      </Bagian>
+
       {/* ============================================ PERAWATAN ======= */}
       <Bagian latar="krem">
         <Wadah>
@@ -205,9 +239,18 @@ export default function Manfaat() {
           <div className="mt-8 grid gap-6">
             <Catatan jenis="penting" judul="Baca ini dulu">
               <p>
-                Di kalangan komunitas eco enzyme, cairan ini juga dipakai untuk
-                mandi, keramas, berkumur, dan merendam kaki. Kami memuatnya di
-                sini karena banyak ditanyakan — <strong>bukan sebagai anjuran
+                Modul resmi Eco Enzyme Nusantara sendiri menutup dengan aturan
+                yang tegas:{" "}
+                <strong>
+                  eco enzyme hanya untuk pemakaian luar, tidak untuk
+                  dikonsumsi.
+                </strong>{" "}
+                Jangan diminum dalam bentuk apa pun.
+              </p>
+              <p className="mt-3">
+                Di kalangan komunitas, cairan ini juga dipakai untuk mandi,
+                keramas, berkumur, dan merendam kaki. Kami memuatnya di sini
+                karena banyak ditanyakan — <strong>bukan sebagai anjuran
                 pengobatan.</strong>
               </p>
               <p className="mt-3">
@@ -332,6 +375,27 @@ function ManfaatKartu({
         {ikon}
       </span>
       <h3 className="mt-4 text-lg text-daun-900">{judul}</h3>
+      <p className="mt-2 text-tinta-lembut">{isi}</p>
+    </li>
+  );
+}
+
+function LapanganKartu({
+  tempat,
+  apa,
+  isi,
+}: {
+  tempat: string;
+  apa: string;
+  isi: string;
+}) {
+  return (
+    <li className="rounded-4xl border-2 border-daun-200 bg-white p-6 shadow-lembut">
+      <p className="flex items-center gap-2 font-display text-sm font-extrabold tracking-wide text-air-700 uppercase">
+        <MapPin size={16} aria-hidden />
+        {tempat}
+      </p>
+      <h3 className="mt-2 text-xl text-daun-900">{apa}</h3>
       <p className="mt-2 text-tinta-lembut">{isi}</p>
     </li>
   );

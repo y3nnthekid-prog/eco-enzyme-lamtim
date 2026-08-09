@@ -7,10 +7,19 @@ export const situs = {
     "Pusat belajar eco enzyme untuk warga Kabupaten Lampung Timur. Belajar apa itu eco enzyme, manfaatnya, cara membuat, dan cara memakainya — dengan bahasa yang mudah dipahami semua umur.",
   url: "https://ecoenzymelamtim.com",
   email: "ecoenzymelampungtimur@gmail.com",
-  whatsapp: "",
+  /** Format internasional tanpa tanda baca, dipakai untuk tautan wa.me */
+  whatsapp: "6281210418003",
+  whatsappTampil: "+62 812-1041-8003",
   instagram: "",
   facebook: "",
 } as const;
+
+/** Tautan WhatsApp lengkap dengan pesan pembuka yang sudah terisi. */
+export function tautanWhatsApp(
+  pesan = "Halo, saya ingin bertanya tentang eco enzyme.",
+): string {
+  return `https://wa.me/${situs.whatsapp}?text=${encodeURIComponent(pesan)}`;
+}
 
 export type ItemNav = {
   label: string;

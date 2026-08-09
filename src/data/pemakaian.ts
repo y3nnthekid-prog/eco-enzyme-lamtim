@@ -126,6 +126,14 @@ export const daftarPemakaian: Pemakaian[] = [
     manfaat: "Menguraikan lemak yang menyumbat pipa",
   },
   {
+    id: "pembersih-logam",
+    nama: "Membersihkan logam kusam & berkarat",
+    kategori: "bersih-bersih",
+    takaran: "Eco enzyme murni, rendam atau gosok",
+    contoh: "Cocok untuk peralatan dapur, engsel, dan perkakas",
+    manfaat: "Mengangkat karat dan mengembalikan kilap logam yang kusam",
+  },
+  {
     id: "cuci-pakaian",
     nama: "Mencuci pakaian",
     kategori: "cuci",
@@ -174,6 +182,24 @@ export const daftarPemakaian: Pemakaian[] = [
     manfaat: "Menyegarkan ruangan dan mengurangi bau serta asap dalam ruangan",
   },
   {
+    id: "diffuser",
+    nama: "Diffuser atau humidifier",
+    kategori: "lingkungan",
+    takaran: "Eco enzyme : air = 1 : 1.000, sesuaikan dengan alat",
+    contoh: "Alternatif selain botol semprot, untuk ruangan tertutup",
+    manfaat: "Menyebarkan uap eco enzyme merata ke seluruh ruangan",
+  },
+  {
+    id: "ranjang-eco-enzyme",
+    nama: "“Ranjang eco enzyme” di kamar tidur",
+    kategori: "lingkungan",
+    takaran: "Wadah larutan utuh, usia larutan minimal 45 hari",
+    contoh: "Letakkan wadah tertutup di kamar tidur",
+    manfaat:
+      "Praktik komunitas untuk menyegarkan udara kamar. Bukan pengganti pengobatan.",
+    perluHatiHati: true,
+  },
+  {
     id: "selokan",
     nama: "Membersihkan selokan & sungai",
     kategori: "lingkungan",
@@ -185,9 +211,10 @@ export const daftarPemakaian: Pemakaian[] = [
     id: "kolam",
     nama: "Menjernihkan kolam & danau",
     kategori: "lingkungan",
-    takaran: "Eco enzyme : air = 1 : 20.000 sampai 1 : 100.000",
-    contoh: "Dituang berkala, misalnya setiap 2 minggu",
-    manfaat: "Air lebih jernih dan ekosistem air membaik",
+    takaran: "Eco enzyme : air = 1 : 50.000 sampai 1 : 100.000, sebulan sekali",
+    contoh:
+      "Pak Joni Oei di Batam menjernihkan kolam air hujan dengan 1.200 liter selama 6 bulan",
+    manfaat: "Air lebih jernih dan ekosistem air berangsur pulih",
   },
   {
     id: "mandi",
@@ -232,6 +259,24 @@ export const daftarPemakaian: Pemakaian[] = [
     takaran: "30 ml eco enzyme : 1 baskom air hangat (30–40 °C), rendam 20–30 menit",
     contoh: "30 ml ± 2 sendok makan",
     manfaat: "Membantu tubuh terasa rileks dan mengurangi bau kaki",
+    perluHatiHati: true,
+  },
+  {
+    id: "pasta-gigi",
+    nama: "Pengganti pasta gigi",
+    kategori: "diri",
+    takaran: "Celupkan sikat gigi ke eco enzyme yang sudah diencerkan",
+    contoh: "Jangan ditelan — kumur lalu buang",
+    manfaat: "Alternatif alami bagi yang ingin mengurangi bahan kimia sintetis",
+    perluHatiHati: true,
+  },
+  {
+    id: "toner",
+    nama: "Toner wajah",
+    kategori: "diri",
+    takaran: "Encerkan sangat tipis, mulai dari 1 : 100",
+    contoh: "Coba dulu di kulit lengan sebelum dipakai di wajah",
+    manfaat: "Dipakai sebagian warga sebagai perawatan kulit alami",
     perluHatiHati: true,
   },
   {

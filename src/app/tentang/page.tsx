@@ -10,6 +10,7 @@ import {
   Wadah,
 } from "@/components/ui";
 import { situs } from "@/lib/situs";
+import { TombolWhatsApp } from "@/components/tombol-whatsapp";
 
 export const metadata: Metadata = {
   title: "Tentang Kami",
@@ -107,16 +108,31 @@ export default function Tentang() {
           />
           <div className="mt-8">
             <Kartu warna="hijau">
+              <p className="font-display text-lg font-extrabold text-daun-900">
+                Paling cepat lewat WhatsApp
+              </p>
+              <div className="mt-3">
+                <TombolWhatsApp pesan="Halo, saya ingin bertanya tentang eco enzyme di Lampung Timur." />
+              </div>
+              <p className="mt-3 text-tinta-lembut">
+                Boleh juga langsung kirim foto larutan Anda kalau ada yang
+                membingungkan — sering kali masalahnya bisa dikenali dari foto.
+              </p>
+
+              <p className="mt-7 font-display text-lg font-extrabold text-daun-900">
+                Atau lewat surel
+              </p>
               <a
                 href={`mailto:${situs.email}`}
-                className="inline-flex max-w-full items-center gap-3 rounded-3xl bg-daun-600 px-6 py-4 font-display text-lg font-extrabold break-all text-white transition-colors hover:bg-daun-700"
+                className="mt-3 inline-flex max-w-full items-center gap-3 rounded-3xl bg-daun-600 px-6 py-4 font-display text-lg font-extrabold break-all text-white transition-colors hover:bg-daun-700"
               >
                 <Mail size={24} className="shrink-0" aria-hidden />
                 {situs.email}
               </a>
               <p className="mt-5 text-tinta-lembut">
-                Sertakan nama desa/kecamatan, perkiraan jumlah peserta, dan
-                waktu yang Anda inginkan agar kami mudah menindaklanjuti.
+                Untuk permintaan pelatihan, sertakan nama desa/kecamatan,
+                perkiraan jumlah peserta, dan waktu yang Anda inginkan agar kami
+                mudah menindaklanjuti.
               </p>
             </Kartu>
           </div>
@@ -146,6 +162,11 @@ export default function Tentang() {
               <li>
                 <strong>Dr. Joean Oon</strong> — peneliti naturopati, Penang,
                 Malaysia.
+              </li>
+              <li>
+                <strong>Modul Dasar Pembuatan Eco Enzyme bagi Pemula</strong> —
+                Eco Enzyme Nusantara, revisi Juni 2023. Menjadi acuan utama
+                untuk panduan pembuatan di situs ini.
               </li>
               <li>
                 <strong>Persatuan Enzim Alam Sekitar Malaysia</strong> — sumber

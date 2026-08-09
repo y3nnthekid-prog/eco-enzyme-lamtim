@@ -130,8 +130,14 @@ agar sitemap dan tautan berbagi ikut menyesuaikan.
 
 ## Sumber materi
 
-Materi edukasi bersumber dari **Modul Kelas Belajar Eco-Enzyme** (Tim Ngajaga
-Bumi, Agustus 2020) dan tabel takaran **Persatuan Enzim Alam Sekitar Malaysia**.
+Acuan utama adalah **Modul Dasar Pembuatan Eco Enzyme bagi Pemula** (Eco Enzyme
+Nusantara, revisi Juni 2023), dilengkapi **Modul Kelas Belajar Eco-Enzyme** (Tim
+Ngajaga Bumi, Agustus 2020) dan tabel takaran **Persatuan Enzim Alam Sekitar
+Malaysia**.
+
+Bila kedua modul berbeda, yang dipakai adalah modul 2023 — misalnya soal
+mengaduk larutan (2023: tidak wajib) dan gula pasir (2023: boleh sebagai
+pilihan terakhir).
 
 Bagian yang berkaitan dengan kesehatan tubuh disertai penafian: informasi di
 situs ini bukan nasihat medis dan tidak menggantikan pemeriksaan dokter.

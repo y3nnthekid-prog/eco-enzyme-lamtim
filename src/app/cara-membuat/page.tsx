@@ -20,6 +20,7 @@ import {
 } from "@/components/ui";
 import { Akordeon, ItemAkordeon } from "@/components/akordeon";
 import { KalkulatorTakaran } from "@/components/kalkulator-takaran";
+import { TombolWhatsApp } from "@/components/tombol-whatsapp";
 import { daftarMasalah } from "@/data/masalah";
 
 export const metadata: Metadata = {
@@ -126,8 +127,11 @@ export default function CaraMembuat() {
                       Berbahan <strong>plastik</strong>
                     </>,
                     <>
-                      Punya <strong>tutup bermulut lebar</strong>, supaya bahan
-                      mudah dimasukkan dan wadah mudah dibersihkan
+                      <strong>Bermulut lebar</strong>, supaya bahan mudah
+                      dimasukkan dan ampas mudah dikeluarkan saat panen
+                    </>,
+                    <>
+                      Bisa <strong>ditutup rapat dan kedap</strong>
                     </>,
                     <>Boleh ukuran besar maupun kecil, sesuai kebutuhan</>,
                     <>Wadah bekas cat, ember, jerigen, atau tong plastik</>,
@@ -146,13 +150,58 @@ export default function CaraMembuat() {
                       gas
                     </>,
                     <>
-                      <strong>Wadah bermulut sempit</strong> seperti botol air
-                      mineral — rentan meledak dan sulit dibersihkan
+                      <strong>Wadah aluminium atau logam lain</strong> — mudah
+                      berkarat
                     </>,
                     <>Wadah bekas bahan kimia yang belum benar-benar bersih</>,
                   ]}
                 />
               </div>
+              <p className="mt-5 rounded-2xl bg-daun-50 px-5 py-4 text-tinta">
+                Wadah kaca justru <strong>bagus dipakai setelah panen</strong>,
+                yaitu untuk mengemas cairan jadinya.
+              </p>
+            </Kartu>
+          </div>
+
+          {/* ---- Wadah bermulut kecil ---- */}
+          <div className="mt-6">
+            <Kartu warna="surya">
+              <h3 className="text-2xl text-surya-900">
+                Bagaimana kalau wadah saya bermulut kecil?
+              </h3>
+              <p className="mt-3 text-tinta">
+                Botol bermulut kecil masih bisa dipakai, tapi{" "}
+                <strong>harus dimodifikasi.</strong> Pada bulan pertama
+                fermentasi menghasilkan banyak sekali gas — tanpa jalan keluar,
+                botol mudah meledak. Panen juga lebih repot karena ampas sulit
+                dikeluarkan.
+              </p>
+              <p className="mt-5 font-bold text-tinta">
+                Pilih salah satu dari empat cara ini:
+              </p>
+              <ol className="mt-4 grid gap-4">
+                <CaraModifikasi
+                  nomor={1}
+                  judul="Buka-tutup berkala"
+                  isi="Buka sedikit tutup botol untuk mengeluarkan gas, lalu segera tutup kembali. Lakukan beberapa kali sehari sampai gasnya berkurang — maksimal selama 1 bulan. Setelah itu tidak boleh dibuka lagi."
+                />
+                <CaraModifikasi
+                  nomor={2}
+                  judul="Ganti tutup dengan balon"
+                  isi="Pasang balon atau sarung tangan medis (handscoon) sebagai pengganti tutup. Gas akan mengembangkannya. Bila balonnya pecah, segera ganti."
+                />
+                <CaraModifikasi
+                  nomor={3}
+                  judul="Tutup plastik berlubang jarum"
+                  isi="Tutup mulut botol dengan plastik, ikat dengan karet, lalu tusuk sekitar 5 lubang halus dengan jarum. Setelah 2 minggu (maksimal 1 bulan), ganti dengan tutup asli dan rapatkan."
+                />
+                <CaraModifikasi
+                  nomor={4}
+                  judul="Pasang selang atau klep"
+                  isi="Sambungkan selang dari tutup botol ke botol lain yang berisi air, atau pasang klep satu arah pada tutupnya. Klep bisa dibeli di toko daring."
+                />
+              </ol>
             </Kartu>
           </div>
           <div className="mt-8">
@@ -229,19 +278,13 @@ export default function CaraMembuat() {
                       </>,
                     ]}
                   />
-                  <div className="mt-4">
-                    <DaftarCeklis
-                      jenis="jangan"
-                      butir={[
-                        <>
-                          <strong>Gula pasir putih</strong> — banyak senyawa
-                          alaminya sudah hilang
-                        </>,
-                      ]}
-                    />
-                  </div>
                 </div>
-                <p className="mt-5 rounded-2xl bg-white px-5 py-4 text-sm text-tinta">
+                <p className="mt-5 rounded-2xl bg-white px-5 py-4 text-tinta">
+                  <strong>Gula pasir putih</strong> hanya dipakai kalau gula
+                  merah dan molase benar-benar tidak tersedia. Boleh, tapi
+                  hasilnya tidak maksimal.
+                </p>
+                <p className="mt-3 rounded-2xl bg-white px-5 py-4 text-sm text-tinta">
                   Hati-hati saat membeli gula merah di pasaran — ada gula merah
                   palsu yang kualitasnya sangat buruk.
                 </p>
@@ -253,19 +296,19 @@ export default function CaraMembuat() {
                   <DaftarCeklis
                     butir={[
                       <>Air sumur</>,
-                      <>Air buangan AC</>,
                       <>
-                        Air PAM/keran yang sudah <strong>didiamkan minimal
-                        24 jam</strong>
+                        Air buangan AC — <strong>ditampung dan diendapkan
+                        dulu</strong> sebelum dipakai
+                      </>,
+                      <>
+                        Air PAM/keran — sebaiknya <strong>didiamkan dulu
+                        minimal 24 jam</strong>
                       </>,
                       <>
                         Air hujan yang ditampung <strong>langsung dari langit</strong>{" "}
                         — bukan lewat genting dan pipa
                       </>,
-                      <>
-                        Air galon, bila kualitas air di lingkungan Anda sangat
-                        buruk
-                      </>,
+                      <>Air isi ulang atau air galon</>,
                     ]}
                   />
                 </div>
@@ -336,11 +379,42 @@ export default function CaraMembuat() {
               Takarannya 30% dari berat air — untuk 12 liter air berarti 3,6 kg.
               Aduk rata sampai semua bahan terendam cairan.
             </Langkah>
-            <Langkah nomor={5} judul="Tutup rapat dan beri label tanggal">
-              Tulis tanggal pembuatan di lakban atau kertas label. Tanggal ini
-              yang akan Anda hitung 90 hari ke depan.
+            <Langkah nomor={5} judul="Tutup rapat sampai panen, beri label tanggal">
+              Tulis tanggal pembuatan dan tanggal panen di lakban atau kertas
+              label. Setelah ditutup, wadah dibiarkan saja sampai 90 hari.
             </Langkah>
           </ol>
+
+          <div className="mb-6">
+            <Catatan jenis="info" judul="Tidak perlu repot mengaduk">
+              <p>
+                Ini yang sering membuat pemula khawatir. Modul terbaru Eco
+                Enzyme Nusantara menegaskan tiga hal:
+              </p>
+              <ul className="mt-3 grid gap-2">
+                <li>
+                  • <strong>Tidak ada keharusan membuka wadah untuk
+                  mengaduk.</strong>
+                </li>
+                <li>
+                  • <strong>Tidak ada keharusan meremas bahan organiknya.</strong>
+                </li>
+                <li>
+                  • Yang penting justru{" "}
+                  <strong>pastikan wadah tertutup serapat mungkin.</strong>
+                </li>
+              </ul>
+              <p className="mt-3">
+                Jadi kalau potongan buah mengambang di permukaan, biarkan saja.
+                Membuka wadah terlalu sering malah memasukkan oksigen dan
+                mengganggu kerja mikroba.
+              </p>
+              <p className="mt-3">
+                Pengecualiannya hanya untuk <strong>wadah bermulut kecil</strong>{" "}
+                yang perlu dibuang gasnya selama bulan pertama.
+              </p>
+            </Catatan>
+          </div>
 
           <Catatan jenis="tips" judul="Belum punya cukup sisa buah? Dicicil saja">
             <p>
@@ -364,19 +438,19 @@ export default function CaraMembuat() {
           />
           <ol className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
             <JadwalKartu
-              waktu="Minggu ke-1"
-              judul="Buang gas & aduk"
-              isi="Bila wadah menggembung, buka tutup sebentar untuk membuang gas lalu tutup rapat lagi. Aduk larutan satu kali."
+              waktu="Bulan ke-1"
+              judul="Awasi gasnya"
+              isi="Wadah bermulut lebar: biarkan saja. Wadah bermulut kecil: buang gasnya secara berkala supaya tidak meledak."
             />
             <JadwalKartu
               waktu="Minggu ke-3"
-              judul="Periksa kondisi"
-              isi="Amati larutan. Bila ada masalah, lakukan perbaikan sekarang — masih sempat."
+              judul="Periksa dari luar"
+              isi="Amati warna dan aromanya tanpa perlu banyak membuka. Bila ada masalah, lakukan perbaikan sekarang — masih sempat."
             />
             <JadwalKartu
               waktu="Hari ke-30"
               judul="Jangan dibuka lagi"
-              isi="Setelah usia 30 hari, wadah sebaiknya tidak dibuka sama sekali agar mikroba bekerja dalam kondisi anaerob."
+              isi="Setelah usia 30 hari, wadah tidak dibuka sama sekali agar mikroba bekerja dalam kondisi anaerob."
               tekankan
             />
             <JadwalKartu
@@ -459,18 +533,35 @@ export default function CaraMembuat() {
             </Akordeon>
           </div>
 
-          <div className="mt-8">
-            <Catatan jenis="info" judul="Kalau perbaikan berhasil atau gagal">
+          <div className="mt-8 grid gap-6">
+            <Catatan jenis="info" judul="Larutan yang gagal pun masih berguna">
               <p>
                 Larutan yang <strong>berhasil diperbaiki</strong> boleh dipakai
                 untuk membersihkan selokan/sungai dan untuk pertanian.
               </p>
               <p className="mt-2">
-                Larutan yang <strong>gagal diperbaiki</strong> hanya boleh dipakai
-                untuk membersihkan selokan atau sungai — jangan untuk keperluan
-                rumah tangga.
+                Larutan yang <strong>tetap berbau got atau berjamur hitam</strong>{" "}
+                jangan dipakai untuk keperluan rumah tangga — tetapi jangan
+                dibuang percuma. Manfaatkan untuk menyuburkan lahan kosong yang
+                tandus, atau campurkan ke dalam pembuatan pupuk organik.
               </p>
             </Catatan>
+
+            <Kartu warna="hijau">
+              <h3 className="text-xl text-daun-900">
+                Masih bingung dengan larutan Anda?
+              </h3>
+              <p className="mt-2 text-tinta-lembut">
+                Foto larutannya dan kirim ke pendamping kami. Sering kali
+                masalahnya bisa dikenali langsung dari foto.
+              </p>
+              <div className="mt-4">
+                <TombolWhatsApp
+                  pesan="Halo, saya mau bertanya soal larutan eco enzyme saya."
+                  label="Tanya lewat WhatsApp"
+                />
+              </div>
+            </Kartu>
           </div>
         </Wadah>
       </Bagian>
@@ -503,32 +594,66 @@ export default function CaraMembuat() {
             </Kartu>
             <Kartu warna="biru">
               <h3 className="text-xl text-air-900">Standar eco enzyme yang baik</h3>
-              <ul className="mt-4 grid gap-3 text-tinta">
+              <p className="mt-3 text-tinta-lembut">
+                Modul 2023 menyebut dua syarat utama:
+              </p>
+              <ul className="mt-3 grid gap-3 text-tinta">
                 <li>
                   Nilai <strong>pH di bawah 4,0</strong>
                 </li>
-                <li>Beraroma asam segar dan tidak terkontaminasi</li>
                 <li>
-                  Untuk keperluan pertanian, nilai <strong>TDS di atas
-                  5.000 ppm</strong>
-                </li>
-                <li>
-                  Semakin lama disimpan, kualitasnya justru semakin baik — dan
-                  tidak punya tanggal kedaluwarsa
+                  Beraroma <strong>asam segar khas fermentasi</strong>, bukan bau
+                  busuk
                 </li>
               </ul>
+              <p className="mt-4 text-tinta-lembut">
+                Sebagai tambahan untuk keperluan pertanian, sebagian penggiat
+                juga mengacu pada nilai TDS di atas 5.000 ppm. Semakin lama
+                disimpan, kualitasnya justru semakin baik — dan tidak punya
+                tanggal kedaluwarsa.
+              </p>
             </Kartu>
           </div>
 
-          <div className="mt-8 grid gap-6 md:grid-cols-2">
-            <Catatan jenis="aman" judul="Cara memanen">
-              Setelah 90 hari, saring larutan dengan kain bersih. Simpan cairan
-              hasil saringan dalam botol atau wadah tertutup.
+          <div className="mt-6">
+            <Kartu warna="hijau">
+              <h3 className="text-2xl text-daun-900">Mengemas hasil panen</h3>
+              <div className="mt-4 grid gap-5 md:grid-cols-2">
+                <div>
+                  <DaftarCeklis
+                    butir={[
+                      <>
+                        Saring dengan kain bersih, lalu simpan di{" "}
+                        <strong>botol kaca atau plastik</strong> yang bertutup
+                        rapat
+                      </>,
+                      <>
+                        Dianjurkan dikemas dalam{" "}
+                        <strong>botol-botol kecil</strong> — lebih praktis
+                        dipakai dan kualitasnya lebih terjaga
+                      </>,
+                      <>Simpan jauh dari sinar matahari langsung</>,
+                    ]}
+                  />
+                </div>
+                <p className="rounded-2xl bg-white px-5 py-4 text-tinta">
+                  Setelah fermentasi selesai, gas sudah tidak diproduksi lagi.
+                  Karena itu <strong>botol kaca aman dipakai untuk mengemas</strong>,
+                  meskipun tadi dilarang untuk wadah fermentasinya.
+                </p>
+              </div>
+            </Kartu>
+          </div>
+
+          <div className="mt-6 grid gap-6 md:grid-cols-2">
+            <Catatan jenis="aman" judul="Jamur putih saat panen">
+              Kalau di permukaan muncul jamur putih halus, jangan panik. Itu
+              jamur baik — pisahkan saja, dan ia masih bisa dimanfaatkan.
             </Catatan>
             <Catatan jenis="tips" judul="Ampasnya jangan dibuang">
               Ampas bisa diblender untuk membersihkan kloset, dikeringkan untuk
-              mengusir tikus atau mengharumkan mobil, dikubur sebagai pupuk, atau
-              ditambahkan ke pembuatan eco enzyme berikutnya.
+              mengharumkan mobil, atau dikubur sebagai pupuk tanaman yang
+              ditanam langsung di tanah — bukan tanaman pot.
             </Catatan>
           </div>
         </Wadah>
@@ -602,6 +727,33 @@ export default function CaraMembuat() {
 }
 
 /* -------------------------------------------------------- pendukung ---- */
+
+function CaraModifikasi({
+  nomor,
+  judul,
+  isi,
+}: {
+  nomor: number;
+  judul: string;
+  isi: string;
+}) {
+  return (
+    <li className="flex gap-4 rounded-3xl bg-white p-5">
+      <span
+        className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-surya-400 font-display font-black text-surya-900"
+        aria-hidden
+      >
+        {nomor}
+      </span>
+      <span>
+        <span className="block font-display text-lg font-extrabold text-surya-900">
+          {judul}
+        </span>
+        <span className="mt-1 block text-tinta-lembut">{isi}</span>
+      </span>
+    </li>
+  );
+}
 
 function AlatKartu({
   ikon,

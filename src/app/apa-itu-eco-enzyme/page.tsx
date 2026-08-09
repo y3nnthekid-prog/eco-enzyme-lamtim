@@ -103,6 +103,27 @@ export default function ApaItuEcoEnzyme() {
               </ol>
             </Kartu>
           </div>
+
+          <div className="mt-6 grid gap-6 md:grid-cols-2">
+            <Catatan jenis="info" judul="Kenapa 90 hari?">
+              <p>
+                Lama fermentasi mengikuti iklim. Di{" "}
+                <strong>wilayah tropis</strong> seperti Indonesia cukup{" "}
+                <strong>3 bulan</strong>, sedangkan di wilayah{" "}
+                <strong>sub-tropis</strong> butuh <strong>6 bulan</strong>.
+              </p>
+              <p className="mt-2">
+                Jadi untuk kita di Lampung Timur, patokannya 90 hari sejak
+                tanggal pembuatan.
+              </p>
+            </Catatan>
+            <Catatan jenis="aman" judul="Warnanya boleh berbeda-beda">
+              Hasil akhirnya berwarna cokelat muda sampai cokelat tua. Perbedaan
+              warna itu wajar — tergantung jenis sisa buah/sayur dan jenis gula
+              yang Anda pakai. Yang jadi patokan adalah aromanya: asam segar,
+              bukan bau busuk.
+            </Catatan>
+          </div>
         </Wadah>
       </Bagian>
 
@@ -203,8 +224,15 @@ export default function ApaItuEcoEnzyme() {
               <p>
                 Hampir semua produk pembersih rumah tangga di pasaran dibuat dari
                 bahan kimia sintetis agar harganya murah. Bahan itu bisa
-                mengiritasi kulit dan mencemari perairan, sementara kemasan
-                plastiknya bertahan sangat lama di Bumi.
+                mengiritasi kulit dan mencemari perairan.
+              </p>
+              <p className="mt-3">
+                Kemasannya pun jadi masalah tersendiri:{" "}
+                <strong className="text-tinta">
+                  di dunia hanya kurang dari 9% kemasan plastik yang didaur
+                  ulang
+                </strong>
+                . Sisanya menumpuk di Bumi.
               </p>
             </KartuIkon>
 
@@ -243,6 +271,23 @@ export default function ApaItuEcoEnzyme() {
                 </ItemAkordeon>
               ))}
             </Akordeon>
+          </div>
+
+          <div className="mt-14">
+            <div className="rounded-5xl border-2 border-daun-300 bg-white p-8 text-center sm:p-12">
+              <p className="font-display text-sm font-extrabold tracking-wide text-daun-700 uppercase">
+                Pesan penutup modul resmi
+              </p>
+              <p className="mt-5 font-display text-2xl leading-snug font-extrabold text-daun-900 sm:text-3xl">
+                Tujuan utama pembuatan eco enzyme adalah{" "}
+                <span className="text-surya-500">menyelamatkan Bumi</span>.
+                Beribu manfaatnya hanyalah bonus.
+              </p>
+              <p className="mx-auto mt-5 max-w-2xl text-lg text-tinta-lembut">
+                Manfaat yang sebenarnya adalah kelestarian Bumi bagi anak cucu
+                kita. Mari kita lakukan dengan hati yang tulus.
+              </p>
+            </div>
           </div>
 
           <div className="mt-12 flex flex-wrap gap-3">

@@ -23,6 +23,7 @@ import {
   Tombol,
   Wadah,
 } from "@/components/ui";
+import { TombolWhatsApp } from "@/components/tombol-whatsapp";
 import { semuaBerita, tanggalIndonesia } from "@/lib/berita";
 import { situs } from "@/lib/situs";
 
@@ -345,10 +346,14 @@ export default function Beranda() {
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Tombol href="/cara-membuat">Saya mau coba membuat</Tombol>
-            <Tombol href="/tentang" varian="garis">
-              Ajak komunitas ke desa kami
-            </Tombol>
+            <TombolWhatsApp
+              pesan="Halo, saya ingin belajar membuat eco enzyme."
+              label="Tanya lewat WhatsApp"
+            />
           </div>
+          <p className="mt-6 text-tinta-lembut">
+            Ada pendamping yang siap membantu bila Anda bingung di tengah jalan.
+          </p>
         </Wadah>
       </div>
     </>

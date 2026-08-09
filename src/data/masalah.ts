@@ -4,72 +4,80 @@ export type Masalah = {
   parah: "aman" | "perbaiki" | "bahaya";
 };
 
-/** Panduan "Mengamati & Memperbaiki Larutan" pada usia 3 minggu. */
+/**
+ * Panduan mengamati dan memperbaiki larutan.
+ * Mengikuti Modul Dasar Pembuatan Eco Enzyme bagi Pemula (Eco Enzyme
+ * Nusantara, revisi Juni 2023), dilengkapi Modul Kelas Belajar Eco-Enzyme
+ * (Ngajaga Bumi, 2020).
+ */
 export const daftarMasalah: Masalah[] = [
   {
-    tanya: "Bahan buah/sayur mengambang di atas permukaan air",
-    parah: "perbaiki",
+    tanya: "Wadah menggembung pada minggu-minggu pertama",
+    parah: "aman",
     jawab: [
-      "Ini wajar terjadi. Cukup aduk supaya semua bahan kembali terendam cairan.",
-      "Setelah diaduk, tutup rapat lagi seperti semula.",
+      "Itu gas hasil fermentasi, tanda larutan Anda hidup dan bekerja.",
+      "Kalau wadah bermulut lebar dan tutupnya kuat, biarkan saja.",
+      "Kalau memakai botol bermulut kecil, buka tutupnya sebentar untuk membuang gas lalu segera tutup rapat kembali. Lakukan hanya selama bulan pertama.",
     ],
   },
   {
-    tanya: "Muncul belatung di dalam wadah",
-    parah: "perbaiki",
+    tanya: "Larutan berbau alkohol atau seperti tape",
+    parah: "aman",
     jawab: [
-      "Tandanya wadah kurang rapat sehingga lalat bisa masuk. Perbaiki dulu kerapatan tutupnya.",
-      "Aduk rata, lalu jemur wadah dalam keadaan tertutup di bawah sinar matahari pagi selama 30 menit setiap hari, 2–3 hari berturut-turut.",
-      "Periksa lagi pada hari ke-7 setelah penjemuran.",
+      "Normal pada bulan pertama.",
+      "Aromanya akan berubah menjadi asam segar seperti cuka menjelang bulan ketiga.",
     ],
   },
   {
-    tanya: "Larutan berwarna hitam dan berbau seperti got",
-    parah: "bahaya",
-    jawab: [
-      "Fermentasi sedang gagal. Perbaiki kerapatan wadah dan pindahkan ke lokasi penyimpanan yang lebih baik.",
-      "Aduk rata, lalu jemur wadah tertutup di bawah matahari pagi 30 menit selama 2–3 hari.",
-      "Jika pada hari ke-7 bau got masih ada, tambahkan gula sebanyak takaran awal, lalu perpanjang waktu fermentasi 1 bulan lagi.",
-    ],
-  },
-  {
-    tanya: "Ada jamur hitam, hijau, atau abu-abu seperti beludru",
-    parah: "bahaya",
-    jawab: [
-      "Itu jamur kapang yang berbahaya. Buang jamurnya terlebih dahulu.",
-      "Lakukan perbaikan yang sama: rapatkan wadah, aduk, dan jemur tertutup 30 menit selama 2–3 hari.",
-      "Bila masih muncul, tambahkan gula sesuai takaran awal dan perpanjang fermentasi 1 bulan.",
-    ],
-  },
-  {
-    tanya: "Ada lapisan jamur putih atau cokelat di permukaan",
+    tanya: "Ada lapisan jamur putih halus di permukaan",
     parah: "aman",
     jawab: [
       "Itu jamur ragi — jamur yang baik. Fermentasi Anda berjalan normal.",
-      "Tidak perlu diaduk. Biarkan saja sampai waktu panen tiba.",
+      "Saat panen, jamurnya bisa dipisahkan dan dimanfaatkan.",
+      "Tidak perlu diaduk atau dibuang.",
     ],
   },
   {
     tanya: "Ada lapisan kenyal seperti jeli di permukaan",
     parah: "aman",
     jawab: [
-      "Selamat! Itu Mama Enzyme — koloni bakteri dan ragi yang bersimbiosis. Tanda fermentasi sangat baik.",
-      "Tidak perlu diaduk. Mama Enzyme tidak selalu muncul, jadi rawatlah bila Anda mendapatkannya.",
+      "Selamat, itu Mama Enzyme — koloni bakteri dan ragi yang bersimbiosis. Tanda fermentasi berjalan sangat baik.",
+      "Mama Enzyme tidak selalu muncul, jadi rawatlah bila Anda mendapatkannya.",
     ],
   },
   {
-    tanya: "Wadah menggembung pada minggu pertama",
+    tanya: "Bahan buah/sayur mengambang di atas permukaan air",
     parah: "aman",
     jawab: [
-      "Itu gas hasil fermentasi. Buka tutup sebentar untuk membuang gas, lalu tutup rapat kembali.",
-      "Lakukan hanya pada bulan pertama. Setelah usia 30 hari, wadah sebaiknya tidak dibuka sama sekali.",
+      "Wajar dan tidak perlu dikhawatirkan.",
+      "Modul 2023 menegaskan tidak ada keharusan membuka wadah untuk mengaduk atau menekan bahan. Yang jauh lebih penting adalah wadah tetap tertutup rapat.",
     ],
   },
   {
-    tanya: "Larutan berbau alkohol",
-    parah: "aman",
+    tanya: "Muncul belatung di dalam wadah",
+    parah: "perbaiki",
     jawab: [
-      "Normal pada bulan pertama. Aromanya akan berubah menjadi asam seperti cuka setelah 3 bulan.",
+      "Penyebabnya wadah kurang tertutup rapat sehingga lalat bisa masuk. Perbaiki dulu kerapatan tutupnya.",
+      "Jemur wadah dalam keadaan tertutup di bawah sinar matahari pagi selama 30 menit, tiga hari berturut-turut.",
+      "Periksa kembali setelah 7 hari.",
+    ],
+  },
+  {
+    tanya: "Larutan berbau got, atau muncul jamur hitam",
+    parah: "bahaya",
+    jawab: [
+      "Penyebabnya kontaminasi mikroba yang tidak baik — biasanya karena lokasi penyimpanan wadah kurang bersih atau terlalu dekat dengan WC, tong sampah, atau bahan kimia.",
+      "Larutan seperti ini sebaiknya tidak dipakai untuk keperluan rumah tangga.",
+      "Jangan dibuang percuma: manfaatkan untuk menyuburkan lahan kosong yang tandus, atau campurkan ke dalam pembuatan pupuk organik.",
+      "Untuk wadah berikutnya, pindahkan lokasi penyimpanan ke tempat yang lebih bersih dan berudara baik.",
+    ],
+  },
+  {
+    tanya: "Ada jamur hijau atau abu-abu seperti beludru",
+    parah: "bahaya",
+    jawab: [
+      "Sama seperti jamur hitam, ini jamur kapang tanda kontaminasi.",
+      "Larutannya dialihkan saja untuk memperbaiki lahan tandus atau dicampur ke pupuk organik, bukan untuk dipakai di rumah.",
     ],
   },
 ];
@@ -78,29 +86,44 @@ export type Faq = { tanya: string; jawab: string };
 
 export const daftarFaq: Faq[] = [
   {
-    tanya: "Apakah eco enzyme punya tanggal kedaluwarsa?",
+    tanya: "Berapa lama fermentasinya?",
     jawab:
-      "Tidak. Eco enzyme yang berhasil justru semakin baik kualitasnya bila disimpan makin lama. Simpan di wadah tertutup dan jauh dari sinar matahari langsung.",
+      "Di wilayah tropis seperti Indonesia, 3 bulan atau 90 hari. Di wilayah sub-tropis butuh 6 bulan. Jadi untuk kita di Lampung Timur, patokannya 90 hari sejak tanggal pembuatan.",
+  },
+  {
+    tanya: "Apakah larutannya harus diaduk setiap minggu?",
+    jawab:
+      "Tidak. Modul terbaru Eco Enzyme Nusantara (2023) menegaskan tidak ada keharusan membuka wadah untuk mengaduk, dan tidak ada keharusan meremas bahan organiknya. Yang paling penting justru memastikan wadah tertutup serapat mungkin sampai waktu panen. Membuka wadah terlalu sering malah memasukkan oksigen dan mengganggu fermentasi.",
   },
   {
     tanya: "Bolehkah pakai gula pasir putih?",
     jawab:
-      "Tidak dianjurkan. Gunakan molase (tetes tebu) atau gula merah — gula tebu, aren, kelapa, atau lontar. Gula pasir sudah kehilangan banyak senyawa alami yang dibutuhkan mikroba.",
+      "Boleh, tapi hanya bila gula merah atau molase benar-benar tidak tersedia — dan hasilnya tidak akan maksimal. Urutan yang paling dianjurkan: molase (tetes tebu), lalu gula merah tebu, gula aren, gula kelapa, atau gula lontar.",
   },
   {
-    tanya: "Bolehkah memakai wadah kaca?",
+    tanya: "Wadah apa yang tidak boleh dipakai?",
     jawab:
-      "Tidak boleh. Gas fermentasi bisa membuat wadah kaca pecah. Gunakan wadah plastik bertutup dengan mulut lebar.",
+      "Hindari wadah kaca karena mudah pecah oleh tekanan gas, dan wadah aluminium atau logam lain karena mudah berkarat. Pakailah wadah plastik bermulut lebar yang bisa ditutup rapat dan kedap. Wadah kaca baru boleh dipakai setelah panen, yaitu untuk mengemas cairan jadinya.",
+  },
+  {
+    tanya: "Bagaimana kalau wadah saya bermulut kecil?",
+    jawab:
+      "Masih bisa, asalkan dimodifikasi supaya gas punya jalan keluar — kalau tidak, botol mudah meledak di bulan pertama. Lihat bagian “Wadah bermulut kecil” di halaman Cara Membuat untuk empat cara modifikasinya.",
   },
   {
     tanya: "Kulit buah apa yang tidak boleh dipakai?",
     jawab:
-      "Hindari bahan berlemak seperti daging alpukat, durian, dan kelapa. Hindari juga bahan yang sudah dimasak, kering, keras, busuk, berjamur, atau berulat.",
+      "Empat kategori yang harus dihindari: berminyak (seperti kelapa dan ampasnya), sudah dimasak (direbus, digoreng, ditumis), kering atau keras seperti kayu, serta yang sudah busuk, berulat, atau berjamur. Selain itu semua sisa buah dan sayur segar boleh dipakai.",
   },
   {
     tanya: "Apakah eco enzyme boleh diminum?",
     jawab:
-      "Situs ini tidak menganjurkan meminum eco enzyme. Fokuskan pemakaian pada kebersihan rumah, pertanian, dan perbaikan lingkungan. Untuk urusan kesehatan, konsultasikan dengan tenaga medis.",
+      "Tidak. Modul resmi Eco Enzyme Nusantara menyatakan dengan tegas: eco enzyme hanya untuk pemakaian luar, tidak untuk dikonsumsi. Untuk urusan kesehatan, konsultasikan dengan tenaga medis.",
+  },
+  {
+    tanya: "Apakah eco enzyme punya tanggal kedaluwarsa?",
+    jawab:
+      "Tidak. Eco enzyme yang berhasil justru semakin baik kualitasnya bila disimpan makin lama. Simpan di wadah tertutup rapat dan jauh dari sinar matahari langsung. Dianjurkan dikemas dalam botol-botol kecil supaya praktis dipakai dan kualitasnya lebih terjaga.",
   },
   {
     tanya: "Bagaimana kalau saya belum punya cukup sisa buah?",
@@ -108,9 +131,14 @@ export const daftarFaq: Faq[] = [
       "Bisa dicicil. Siapkan air dan gula sesuai takaran, lalu tambahkan sisa buah sedikit demi sedikit selama maksimal 2 minggu. Catat beratnya setiap kali menambah. Hitung tanggal pembuatan dari hari saat takaran bahan akhirnya terpenuhi.",
   },
   {
+    tanya: "Ampasnya boleh untuk tanaman dalam pot?",
+    jawab:
+      "Sebaiknya tidak. Ampas eco enzyme dianjurkan untuk tanaman yang ditanam langsung di tanah, bukan tanaman pot. Untuk tanaman pot, gunakan cairan eco enzyme yang sudah diencerkan 1 : 1.000 saja.",
+  },
+  {
     tanya: "Apakah eco enzyme boleh diperjualbelikan?",
     jawab:
-      "Dr. Rosukon Poompanvong membagikan ilmu ini secara cuma-cuma agar semua orang tergerak menyelamatkan Bumi. Komunitas eco enzyme mendorong agar cairan ini tidak diperjualbelikan, melainkan dibagikan.",
+      "Tidak. Dr. Rosukon Poompanvong membagikan ilmu ini secara cuma-cuma agar semua orang tergerak menyelamatkan Bumi, dan modul resmi Eco Enzyme Nusantara menegaskan eco enzyme tidak diperjualbelikan. Bagikan cairannya, ajarkan cara membuatnya.",
   },
   {
     tanya: "Apa bedanya eco enzyme dengan kompos?",
