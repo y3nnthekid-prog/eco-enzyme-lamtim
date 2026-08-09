@@ -52,14 +52,16 @@ export const viewport: Viewport = {
   themeColor: "#4ea832",
 };
 
-const skripUkuranTeks = `
+const skripAwal = `
 (function(){
+  var d = document.documentElement;
   try {
     var t = localStorage.getItem('ukuran-teks');
-    if (t === 'besar' || t === 'sangat-besar') {
-      document.documentElement.setAttribute('data-teks', t);
-    }
+    if (t === 'besar' || t === 'sangat-besar') d.setAttribute('data-teks', t);
   } catch (e) {}
+  // Menandai bahwa JavaScript hidup. Animasi masuk hanya menyembunyikan isi
+  // bila penanda ini ada, sehingga tanpa JavaScript halaman tetap terbaca.
+  d.classList.add('js-siap');
 })();
 `;
 
@@ -75,7 +77,7 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
       suppressHydrationWarning
     >
       <head>
-        <script nonce={nonce} dangerouslySetInnerHTML={{ __html: skripUkuranTeks }} />
+        <script nonce={nonce} dangerouslySetInnerHTML={{ __html: skripAwal }} />
       </head>
       <body className="flex min-h-full flex-col">
         <a

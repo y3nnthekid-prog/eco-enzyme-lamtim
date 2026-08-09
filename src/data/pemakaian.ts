@@ -19,52 +19,58 @@ export type Pemakaian = {
   perluHatiHati?: boolean;
 };
 
+/**
+ * Nama ikon lucide untuk tiap kategori. Sengaja memakai ikon garis, bukan
+ * emoji: emoji tampil berbeda-beda di tiap perangkat, ukurannya sulit
+ * disamakan dengan teks di sebelahnya, dan membuat antarmuka terlihat seperti
+ * templat siap pakai.
+ */
 export const daftarKategori: {
   id: Kategori;
   nama: string;
-  emoji: string;
+  ikon: string;
   keterangan: string;
 }[] = [
   {
     id: "dapur",
     nama: "Dapur",
-    emoji: "🍽️",
+    ikon: "UtensilsCrossed",
     keterangan: "Cuci piring, kompor, dan merendam sayur",
   },
   {
     id: "bersih-bersih",
     nama: "Bersih-bersih Rumah",
-    emoji: "🧹",
+    ikon: "SprayCan",
     keterangan: "Pel lantai, kamar mandi, dan kloset",
   },
   {
     id: "cuci",
     nama: "Cuci Pakaian",
-    emoji: "👕",
+    ikon: "Shirt",
     keterangan: "Merendam dan mencuci baju",
   },
   {
     id: "kebun",
     nama: "Kebun & Sawah",
-    emoji: "🌱",
+    ikon: "Sprout",
     keterangan: "Pupuk dan pengendali hama alami",
   },
   {
     id: "lingkungan",
     nama: "Udara & Air",
-    emoji: "💧",
+    ikon: "Droplets",
     keterangan: "Penjernih udara, selokan, dan kolam",
   },
   {
     id: "diri",
     nama: "Perawatan Diri",
-    emoji: "🧴",
+    ikon: "Bath",
     keterangan: "Mandi, keramas, dan berkumur",
   },
   {
     id: "hewan",
     nama: "Hewan Peliharaan",
-    emoji: "🐈",
+    ikon: "PawPrint",
     keterangan: "Memandikan dan menghilangkan bau",
   },
 ];

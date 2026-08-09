@@ -173,7 +173,7 @@ export default function CaraMemakai() {
             judul="Tabel takaran lengkap"
             ringkasan="Versi ringkas untuk dicetak atau difoto sebagai catatan di dapur."
           />
-          <div className="mt-10 overflow-x-auto rounded-4xl border-2 border-air-200 bg-white">
+          <div className="mt-10 overflow-x-auto rounded-4xl border border-air-200/70 bg-white">
             <table className="w-full min-w-[44rem] border-collapse text-left">
               <caption className="sr-only">
                 Takaran pemakaian eco enzyme untuk berbagai keperluan

@@ -19,7 +19,7 @@ export default function TidakDitemukan() {
           <li key={item.href}>
             <Link
               href={item.href}
-              className="inline-block rounded-full border-2 border-daun-200 bg-white px-5 py-2.5 font-bold text-daun-800 hover:bg-daun-50"
+              className="inline-block rounded-full border border-daun-200/70 bg-white px-5 py-2.5 font-bold text-daun-800 hover:bg-daun-50"
             >
               {item.label}
             </Link>

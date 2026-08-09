@@ -69,7 +69,7 @@ export function KalkulatorTakaran() {
   const takLazim = liter < 1 || liter > 1000;
 
   return (
-    <div className="overflow-hidden rounded-5xl border-2 border-daun-200 bg-white shadow-angkat">
+    <div className="overflow-hidden rounded-5xl border border-daun-200/70 bg-white shadow-angkat">
       {/* ---- Bagian isian ---- */}
       <div className="border-b-2 border-daun-100 bg-daun-50 p-6 sm:p-8">
         <h3 className="text-2xl text-daun-900">Kalkulator Takaran</h3>
@@ -151,7 +151,7 @@ export function KalkulatorTakaran() {
                 setLiter(20);
                 setTanggal(hariIni());
               }}
-              className="mt-4 flex items-center gap-2 rounded-full border-2 border-daun-200 bg-white px-4 py-2 text-sm font-bold text-daun-800 hover:bg-daun-100"
+              className="mt-4 flex items-center gap-2 rounded-full border border-daun-200/70 bg-white px-4 py-2 text-sm font-bold text-daun-800 hover:bg-daun-100"
             >
               <RotateCcw size={16} aria-hidden />
               Kembalikan ke awal
@@ -200,12 +200,12 @@ export function KalkulatorTakaran() {
             </div>
 
             <div className="mt-5 grid gap-4 sm:grid-cols-2">
-              <p className="rounded-3xl border-2 border-daun-100 bg-daun-50 p-5 text-tinta">
+              <p className="rounded-3xl border border-garis bg-daun-50 p-5 text-tinta">
                 Sisakan <strong>{volume(hasil.sisaRuang)}</strong> ruang
                 kosong di wadah (40%) supaya gas fermentasi punya tempat dan
                 wadah tidak meledak.
               </p>
-              <p className="flex items-start gap-3 rounded-3xl border-2 border-air-200 bg-air-50 p-5 text-tinta">
+              <p className="flex items-start gap-3 rounded-3xl border border-air-200/70 bg-air-50 p-5 text-tinta">
                 <CalendarCheck
                   size={26}
                   className="mt-0.5 shrink-0 text-air-600"
@@ -288,7 +288,7 @@ function Jadwal({
   isi: string;
 }) {
   return (
-    <li className="rounded-3xl border-2 border-daun-100 bg-white p-5">
+    <li className="rounded-3xl border border-garis bg-white p-5">
       <p className="font-display text-lg font-extrabold text-daun-800">{judul}</p>
       <p className="text-sm font-bold text-air-700">{tanggal}</p>
       <p className="mt-1.5 text-sm text-tinta-lembut">{isi}</p>

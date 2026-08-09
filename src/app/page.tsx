@@ -1,8 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import {
-  Apple,
-  Candy,
+  Clock,
   Droplets,
   Leaf,
   Recycle,
@@ -24,6 +23,7 @@ import {
   Wadah,
 } from "@/components/ui";
 import { TombolWhatsApp } from "@/components/tombol-whatsapp";
+import { Muncul } from "@/components/muncul";
 import { semuaBerita, tanggalIndonesia } from "@/lib/berita";
 import { situs } from "@/lib/situs";
 
@@ -33,84 +33,101 @@ export default function Beranda() {
   return (
     <>
       {/* ============================================ HERO ============ */}
-      <div className="pola-daun relative overflow-hidden border-b-2 border-daun-100">
-        <Wadah lebar="lebar" className="py-14 sm:py-20">
-          <div className="grid items-center gap-12 lg:grid-cols-[1.15fr_1fr]">
+      <div className="pola-daun relative overflow-hidden">
+        <Wadah lebar="lebar" className="pt-10 pb-16 sm:pt-16 sm:pb-24">
+          <div className="grid items-center gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20">
             <div>
-              <p className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-extrabold text-daun-700 shadow-lembut">
-                <Leaf size={18} aria-hidden />
+              <p className="kicker masuk">
+                <Leaf size={15} aria-hidden />
                 Gerakan warga Kabupaten Lampung Timur
               </p>
-              <h1 className="mt-6 text-4xl text-daun-900 sm:text-5xl lg:text-6xl">
+              <h1 className="masuk mt-6 text-[2.75rem] leading-[1.03] tracking-[-0.03em] text-daun-900 sm:text-6xl lg:text-[4.25rem] [--jeda:70ms]">
                 Sampah dapur bisa jadi{" "}
-                <span className="text-surya-500">cairan serba guna</span>
+                <em className="relative not-italic text-surya-500">
+                  cairan serba guna
+                  {/* Garis bawah tulisan tangan, digambar sekali saat halaman
+                      dibuka. Menandai frasa kunci tanpa perlu stabilo blok. */}
+                  <svg
+                    className="coret absolute -bottom-2 left-0 h-[0.42em] w-full text-surya-300/80 sm:-bottom-3"
+                    viewBox="0 0 320 22"
+                    fill="none"
+                    preserveAspectRatio="none"
+                    aria-hidden
+                  >
+                    <path
+                      d="M4 15.5C58 7.5 133 4 190 6.5c40 1.8 89 5.5 126 11"
+                      stroke="currentColor"
+                      strokeWidth="5"
+                      strokeLinecap="round"
+                    />
+                  </svg>
+                </em>
               </h1>
-              <p className="mt-6 max-w-2xl text-lg text-tinta-lembut sm:text-xl">
+              <p className="masuk mt-8 max-w-xl text-lg leading-relaxed text-tinta-lembut sm:text-xl [--jeda:140ms]">
                 Namanya <strong className="text-tinta">eco enzyme</strong>. Cuma
-                dari kulit buah, gula merah, dan air. Bisa dipakai untuk mengepel
+                dari kulit buah, gula merah, dan air. Bisa dipakai mengepel
                 lantai, mencuci piring, menyuburkan tanaman, sampai menjernihkan
-                air — dan membantu Bumi jadi lebih sehat.
+                air.
               </p>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <Tombol href="/cara-membuat">Cara Membuat</Tombol>
+              <div className="masuk mt-9 flex flex-wrap items-center gap-3 [--jeda:210ms]">
+                <Tombol href="/cara-membuat">Mulai dari sini</Tombol>
                 <Tombol href="/apa-itu-eco-enzyme" varian="garis">
-                  Apa Itu Eco Enzyme?
+                  Apa itu eco enzyme?
                 </Tombol>
               </div>
-              <p className="mt-6 text-tinta-lembut">
-                Bisa dibaca anak-anak sampai kakek-nenek. Butuh huruf lebih
-                besar? Tekan tombol{" "}
-                <span className="font-bold text-daun-700">A</span> di pojok atas.
+              <p className="masuk mt-7 text-tinta-lembut [--jeda:280ms]">
+                Butuh huruf lebih besar? Tekan tombol{" "}
+                <span className="font-bold text-daun-700">A</span> di pojok
+                kanan atas.
               </p>
             </div>
 
             {/* Kartu resep 1 : 3 : 10 */}
-            <div className="relative">
-              <div className="absolute -inset-4 -z-10 rotate-3 rounded-5xl bg-daun-100/70" />
-              <div className="rounded-5xl border-2 border-daun-200 bg-white p-6 shadow-angkat sm:p-8">
-                <div className="flex items-center gap-4">
+            <div className="masuk [--jeda:340ms]">
+              <div className="rounded-4xl border border-garis bg-white/85 p-7 shadow-angkat backdrop-blur-sm sm:p-9">
+                <div className="flex items-center gap-4 border-b border-garis pb-6">
                   <Image
                     src="/logo-een-lamtim.png"
                     alt="Logo Eco Enzyme Nusantara Kabupaten Lampung Timur"
                     width={72}
                     height={72}
                     priority
-                    className="h-16 w-16 sm:h-18 sm:w-18"
+                    className="h-14 w-14 shrink-0"
                   />
-                  <p className="font-display text-xl leading-tight font-extrabold text-daun-900">
-                    Resepnya cuma satu
-                    <span className="block text-base font-bold text-tinta-lembut">
-                      Hafalkan angka ini: 1 – 3 – 10
+                  <p className="font-display leading-tight font-extrabold text-daun-900">
+                    <span className="block text-xs tracking-[0.14em] text-tinta-lembut uppercase">
+                      Resepnya cuma satu
+                    </span>
+                    <span className="mt-1 block text-2xl tracking-[-0.02em]">
+                      1 &middot; 3 &middot; 10
                     </span>
                   </p>
                 </div>
 
-                <ul className="mt-7 grid gap-4">
+                <ul className="divide-y divide-garis">
                   <BahanBaris
                     angka="1"
-                    ikon={<Candy size={26} aria-hidden />}
                     nama="bagian gula merah"
                     keterangan="atau molase (tetes tebu)"
                     warna="surya"
                   />
                   <BahanBaris
                     angka="3"
-                    ikon={<Apple size={26} aria-hidden />}
                     nama="bagian sisa buah & sayur"
                     keterangan="kulit buah, potongan sayur mentah"
                     warna="daun"
                   />
                   <BahanBaris
                     angka="10"
-                    ikon={<Droplets size={26} aria-hidden />}
                     nama="bagian air bersih"
                     keterangan="air sumur, air hujan, atau air keran"
                     warna="air"
                   />
                 </ul>
 
-                <p className="mt-6 rounded-3xl bg-daun-50 px-5 py-4 text-center font-display text-lg font-extrabold text-daun-800">
-                  Diamkan 90 hari 🕒 lalu panen
+                <p className="mt-6 flex items-center gap-2.5 border-t border-garis pt-6 font-display font-extrabold text-daun-800">
+                  <Clock size={19} className="text-daun-500" aria-hidden />
+                  Diamkan 90 hari, lalu panen
                 </p>
               </div>
             </div>
@@ -163,24 +180,30 @@ export default function Beranda() {
             label="Kenapa ini penting"
             judul="Tiga angka yang perlu kita tahu"
           />
-          <div className="mt-10 grid gap-6 sm:grid-cols-3">
-            <Angka
-              angka="60"
-              satuan="%"
-              keterangan="Sampah yang menumpuk di TPA adalah sampah organik — sisa dapur kita"
-            />
-            <Angka
-              angka="21"
-              satuan="×"
-              keterangan="Gas metana dari sampah busuk memerangkap panas 21 kali lebih kuat dari CO₂"
-              warna="surya"
-            />
-            <Angka
-              angka="10"
-              satuan="pohon"
-              keterangan="Satu tong eco enzyme diperkirakan setara manfaat 10 pohon bagi udara"
-              warna="air"
-            />
+          <div className="mt-12 grid gap-8 sm:grid-cols-3 sm:gap-10">
+            <Muncul>
+              <Angka
+                angka="60"
+                satuan="%"
+                keterangan="Sampah yang menumpuk di TPA adalah sampah organik — sisa dapur kita"
+              />
+            </Muncul>
+            <Muncul jeda={110}>
+              <Angka
+                angka="21"
+                satuan="×"
+                keterangan="Gas metana dari sampah busuk memerangkap panas 21 kali lebih kuat dari CO₂"
+                warna="surya"
+              />
+            </Muncul>
+            <Muncul jeda={220}>
+              <Angka
+                angka="10"
+                satuan="pohon"
+                keterangan="Satu tong eco enzyme diperkirakan setara manfaat 10 pohon bagi udara"
+                warna="air"
+              />
+            </Muncul>
           </div>
           <div className="mt-8">
             <Catatan jenis="info" judul="Bukan sekadar teori">
@@ -308,7 +331,7 @@ export default function Beranda() {
                 <li key={b.slug}>
                   <Link
                     href={`/berita/${b.slug}`}
-                    className="group flex h-full flex-col rounded-4xl border-2 border-daun-100 bg-white p-6 shadow-lembut transition-shadow hover:shadow-angkat"
+                    className="group flex h-full flex-col rounded-4xl border border-garis bg-white p-6 shadow-lembut angkat"
                   >
                     <p className="flex flex-wrap items-center gap-2 text-sm font-bold">
                       <span className="rounded-full bg-daun-100 px-3 py-1 text-daun-800">
@@ -364,37 +387,38 @@ export default function Beranda() {
 
 function BahanBaris({
   angka,
-  ikon,
   nama,
   keterangan,
   warna,
 }: {
   angka: string;
-  ikon: React.ReactNode;
   nama: string;
   keterangan: string;
   warna: "daun" | "air" | "surya";
 }) {
   const gaya = {
-    daun: "bg-daun-100 text-daun-700",
-    air: "bg-air-100 text-air-700",
-    surya: "bg-surya-100 text-surya-700",
+    daun: "text-daun-500",
+    air: "text-air-500",
+    surya: "text-surya-400",
   }[warna];
   return (
-    <li className="flex items-center gap-4">
+    <li className="flex items-baseline gap-5 py-4">
+      {/* Angka takaran dibiarkan besar dan telanjang, bukan dijejalkan ke
+          dalam kotak berwarna. Lebar tetap supaya "1", "3", "10" rata kanan. */}
       <span
-        className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl font-display text-2xl font-black ${gaya}`}
+        className={`w-12 shrink-0 text-right font-display text-[2.1rem] leading-none font-black tracking-[-0.03em] tabular-nums ${gaya}`}
+        aria-hidden
       >
         {angka}
       </span>
-      <span className={`hidden shrink-0 rounded-xl p-2 sm:block ${gaya}`} aria-hidden>
-        {ikon}
-      </span>
       <span>
-        <span className="block font-display text-lg font-extrabold text-tinta">
+        <span className="block font-display font-extrabold text-tinta">
+          <span className="sr-only">{angka} </span>
           {nama}
         </span>
-        <span className="block text-tinta-lembut">{keterangan}</span>
+        <span className="mt-0.5 block text-sm text-tinta-lembut">
+          {keterangan}
+        </span>
       </span>
     </li>
   );
@@ -410,12 +434,25 @@ function LangkahKartu({
   isi: string;
 }) {
   return (
-    <li className="rounded-4xl border-2 border-daun-100 bg-white p-7 shadow-lembut">
-      <span className="flex h-14 w-14 items-center justify-center rounded-full bg-daun-600 font-display text-2xl font-black text-white">
-        {nomor}
+    // Nomor besar tipis di atas garis, tanpa kartu maupun lingkaran hijau.
+    // Tiga langkah berjajar jadi terbaca seperti urutan, bukan tiga kotak.
+    // Jeda bertingkat membuatnya masuk satu per satu, mengikuti urutan baca.
+    <Muncul
+      sebagai="li"
+      jeda={(nomor - 1) * 110}
+      className="border-t-2 border-daun-200 pt-6"
+    >
+      <span
+        className="font-display text-5xl leading-none font-black tracking-[-0.04em] text-daun-200"
+        aria-hidden
+      >
+        {String(nomor).padStart(2, "0")}
       </span>
-      <h3 className="mt-5 text-2xl text-daun-900">{judul}</h3>
-      <p className="mt-2 text-tinta-lembut">{isi}</p>
-    </li>
+      <h3 className="mt-4 text-2xl tracking-[-0.015em] text-daun-900">
+        <span className="sr-only">Langkah {nomor}: </span>
+        {judul}
+      </h3>
+      <p className="mt-2.5 leading-relaxed text-tinta-lembut">{isi}</p>
+    </Muncul>
   );
 }

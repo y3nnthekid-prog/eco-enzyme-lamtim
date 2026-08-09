@@ -63,7 +63,7 @@ export function PengaturTeks() {
       onClick={ganti}
       title="Perbesar ukuran tulisan"
       aria-label={`Ukuran tulisan: ${label[ukuran]}. Klik untuk mengubah.`}
-      className="flex shrink-0 items-center gap-1.5 rounded-full border-2 border-daun-200 bg-white px-3 py-2 font-bold text-daun-800 transition-colors hover:bg-daun-50"
+      className="flex shrink-0 items-center gap-1.5 rounded-full border border-daun-200/70 bg-white px-3 py-2 font-bold text-daun-800 transition-colors hover:bg-daun-50"
     >
       <ALargeSmall size={20} aria-hidden />
       <span className="flex gap-0.5" aria-hidden>

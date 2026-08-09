@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { ComponentProps, ReactNode } from "react";
 import { AlertTriangle, ArrowRight, CheckCircle2, Info, Lightbulb } from "lucide-react";
+import { Muncul } from "@/components/muncul";
 
 /* -------------------------------------------------------------- Wadah ---- */
 
@@ -62,19 +63,23 @@ export function JudulBagian({
   ringkasan?: ReactNode;
   rata?: "kiri" | "tengah";
 }) {
-  const posisi = rata === "tengah" ? "text-center mx-auto" : "";
+  const tengah = rata === "tengah";
   return (
-    <div className={`max-w-3xl ${posisi}`}>
+    <Muncul className={`max-w-3xl ${tengah ? "mx-auto text-center" : ""}`}>
       {label && (
-        <p className="mb-3 inline-block rounded-full bg-daun-100 px-4 py-1.5 text-sm font-extrabold tracking-wide text-daun-800 uppercase">
+        <p className={`kicker mb-4 ${tengah ? "justify-center" : ""}`}>
           {label}
         </p>
       )}
-      <h2 className="text-3xl text-daun-900 sm:text-4xl">{judul}</h2>
+      <h2 className="text-[2rem] leading-[1.12] tracking-[-0.02em] text-daun-900 sm:text-[2.6rem]">
+        {judul}
+      </h2>
       {ringkasan && (
-        <p className="mt-4 text-lg text-tinta-lembut sm:text-xl">{ringkasan}</p>
+        <p className="mt-5 text-lg leading-relaxed text-tinta-lembut sm:text-xl">
+          {ringkasan}
+        </p>
       )}
-    </div>
+    </Muncul>
   );
 }
 
@@ -90,14 +95,14 @@ export function Kartu({
   warna?: "putih" | "hijau" | "biru" | "surya";
 }) {
   const gaya = {
-    putih: "bg-white border-daun-100",
-    hijau: "bg-daun-50 border-daun-200",
-    biru: "bg-air-50 border-air-200",
-    surya: "bg-surya-50 border-surya-200",
+    putih: "bg-white border-garis",
+    hijau: "bg-daun-50/70 border-daun-200/60",
+    biru: "bg-air-50/70 border-air-200/60",
+    surya: "bg-surya-50/70 border-surya-200/60",
   }[warna];
   return (
     <div
-      className={`rounded-4xl border-2 p-6 shadow-lembut sm:p-7 ${gaya} ${className}`}
+      className={`rounded-4xl border p-6 shadow-lembut sm:p-8 ${gaya} ${className}`}
     >
       {children}
     </div>
@@ -116,20 +121,20 @@ export function KartuIkon({
   warna?: "daun" | "air" | "surya";
 }) {
   const gaya = {
-    daun: "bg-daun-100 text-daun-700",
-    air: "bg-air-100 text-air-700",
-    surya: "bg-surya-100 text-surya-700",
+    daun: "text-daun-600",
+    air: "text-air-600",
+    surya: "text-surya-500",
   }[warna];
   return (
-    <div className="h-full rounded-4xl border-2 border-daun-100 bg-white p-6 shadow-lembut transition-shadow hover:shadow-angkat">
-      <span
-        className={`flex h-14 w-14 items-center justify-center rounded-2xl ${gaya}`}
-        aria-hidden
-      >
+    <div className="angkat h-full rounded-4xl border border-garis bg-white p-7 shadow-lembut hover:border-daun-200">
+      {/* Ikon dibiarkan telanjang di atas judul. Lingkaran berwarna di balik
+          setiap ikon adalah pola yang paling cepat membuat halaman terasa
+          seperti templat. */}
+      <span className={`block ${gaya}`} aria-hidden>
         {ikon}
       </span>
-      <h3 className="mt-5 text-xl text-daun-900">{judul}</h3>
-      <div className="mt-2 text-tinta-lembut">{children}</div>
+      <h3 className="mt-5 text-xl tracking-[-0.01em] text-daun-900">{judul}</h3>
+      <div className="mt-2.5 leading-relaxed text-tinta-lembut">{children}</div>
     </div>
   );
 }
@@ -139,25 +144,25 @@ export function KartuIkon({
 const jenisCatatan = {
   tips: {
     ikon: Lightbulb,
-    gaya: "border-surya-300 bg-surya-50",
+    gaya: "border-surya-400 bg-surya-50/60",
     warnaIkon: "text-surya-600",
     judulBawaan: "Tips",
   },
   penting: {
     ikon: AlertTriangle,
-    gaya: "border-red-300 bg-red-50",
+    gaya: "border-red-400 bg-red-50/60",
     warnaIkon: "text-red-600",
     judulBawaan: "Perhatian",
   },
   info: {
     ikon: Info,
-    gaya: "border-air-300 bg-air-50",
+    gaya: "border-air-400 bg-air-50/60",
     warnaIkon: "text-air-600",
     judulBawaan: "Tahukah Anda",
   },
   aman: {
     ikon: CheckCircle2,
-    gaya: "border-daun-300 bg-daun-50",
+    gaya: "border-daun-400 bg-daun-50/60",
     warnaIkon: "text-daun-600",
     judulBawaan: "Boleh dilakukan",
   },
@@ -174,12 +179,14 @@ export function Catatan({
 }) {
   const { ikon: Ikon, gaya, warnaIkon, judulBawaan } = jenisCatatan[jenis];
   return (
-    <div className={`rounded-3xl border-2 p-5 sm:p-6 ${gaya}`}>
+    // Pita warna di tepi kiri, bukan bingkai penuh — mata langsung menangkap
+    // "ini sisipan", tanpa menambah satu kotak lagi ke halaman.
+    <div className={`rounded-r-3xl rounded-l-lg border-l-4 py-5 pr-5 pl-5 sm:pr-7 ${gaya}`}>
       <p className="flex items-center gap-2.5 font-display text-lg font-extrabold text-tinta">
-        <Ikon size={24} className={warnaIkon} aria-hidden />
+        <Ikon size={22} className={`shrink-0 ${warnaIkon}`} aria-hidden />
         {judul ?? judulBawaan}
       </p>
-      <div className="mt-2 text-tinta">{children}</div>
+      <div className="mt-2 leading-relaxed text-tinta">{children}</div>
     </div>
   );
 }
@@ -201,16 +208,14 @@ export function Tombol({
   ...sisa
 }: TombolProps) {
   const gaya = {
-    utama:
-      "bg-daun-600 text-white hover:bg-daun-700 shadow-lembut border-2 border-daun-600",
-    kedua:
-      "bg-surya-400 text-surya-900 hover:bg-surya-300 shadow-lembut border-2 border-surya-400",
-    garis: "bg-white text-daun-800 border-2 border-daun-300 hover:bg-daun-50",
+    utama: "bg-daun-700 text-white hover:bg-daun-800 shadow-lembut",
+    kedua: "bg-surya-400 text-surya-900 hover:bg-surya-300 shadow-lembut",
+    garis: "bg-white text-daun-800 border border-daun-300 hover:border-daun-500",
   }[varian];
   return (
     <Link
       href={href}
-      className={`inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-center font-display text-lg font-extrabold transition-colors ${gaya} ${className}`}
+      className={`inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-center font-display text-lg font-extrabold transition-[background-color,border-color,transform,box-shadow] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 active:translate-y-0 motion-reduce:hover:translate-y-0 ${gaya} ${className}`}
       {...sisa}
     >
       {children}
@@ -254,13 +259,13 @@ export function KepalaLaman({
   anak?: ReactNode;
 }) {
   return (
-    <div className="pola-daun border-b-2 border-daun-100 bg-daun-50/60">
-      <Wadah lebar="normal" className="py-14 sm:py-20">
-        <p className="inline-block rounded-full bg-white px-4 py-1.5 text-sm font-extrabold tracking-wide text-daun-700 uppercase shadow-lembut">
-          {label}
-        </p>
-        <h1 className="mt-5 text-4xl text-daun-900 sm:text-5xl">{judul}</h1>
-        <p className="mt-5 max-w-3xl text-lg text-tinta-lembut sm:text-xl">
+    <div className="pola-daun overflow-hidden border-b border-garis">
+      <Wadah lebar="normal" className="relative py-16 sm:py-24">
+        <p className="kicker masuk">{label}</p>
+        <h1 className="masuk mt-5 max-w-4xl text-[2.5rem] leading-[1.08] tracking-[-0.025em] text-daun-900 sm:text-6xl [--jeda:70ms]">
+          {judul}
+        </h1>
+        <p className="masuk mt-6 max-w-2xl text-lg leading-relaxed text-tinta-lembut sm:text-xl [--jeda:140ms]">
           {ringkasan}
         </p>
         {anak}
@@ -322,12 +327,16 @@ export function Angka({
     surya: "text-surya-500",
   }[warna];
   return (
-    <div className="rounded-4xl border-2 border-daun-100 bg-white p-6 text-center shadow-lembut">
-      <p className={`font-display text-5xl font-black sm:text-6xl ${gaya}`}>
+    // Tanpa kotak. Angkanya sendiri yang jadi bentuk visual, dipisahkan
+    // garis tipis di atas — cara majalah menyusun statistik.
+    <div className="border-t-2 border-daun-200 pt-5">
+      <p
+        className={`font-display text-[3.25rem] leading-none font-black tracking-[-0.03em] tabular-nums sm:text-6xl ${gaya}`}
+      >
         {angka}
         {satuan && <span className="text-2xl sm:text-3xl"> {satuan}</span>}
       </p>
-      <p className="mt-3 font-semibold text-tinta-lembut">{keterangan}</p>
+      <p className="mt-4 leading-relaxed text-tinta-lembut">{keterangan}</p>
     </div>
   );
 }

@@ -45,7 +45,7 @@ export default function DaftarBerita() {
               {/* Berita paling baru ditampilkan besar */}
               <Link
                 href={`/berita/${utama.slug}`}
-                className="group block rounded-5xl border-2 border-daun-200 bg-white p-7 shadow-lembut transition-shadow hover:shadow-angkat sm:p-10"
+                className="group block rounded-5xl border border-daun-200/70 bg-white p-7 shadow-lembut angkat sm:p-10"
               >
                 <p className="flex flex-wrap items-center gap-3 text-sm font-bold">
                   <span className="rounded-full bg-surya-400 px-3 py-1 text-surya-900">
@@ -82,7 +82,7 @@ export default function DaftarBerita() {
                     <li key={b.slug}>
                       <Link
                         href={`/berita/${b.slug}`}
-                        className="group flex h-full flex-col rounded-4xl border-2 border-daun-100 bg-white p-6 shadow-lembut transition-shadow hover:shadow-angkat"
+                        className="group flex h-full flex-col rounded-4xl border border-garis bg-white p-6 shadow-lembut angkat"
                       >
                         <p className="flex flex-wrap items-center gap-2 text-sm font-bold">
                           <span className="rounded-full bg-daun-100 px-3 py-1 text-daun-800">

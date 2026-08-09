@@ -367,7 +367,7 @@ function ManfaatKartu({
       ? "bg-daun-100 text-daun-700"
       : "bg-air-100 text-air-700";
   return (
-    <li className="rounded-4xl border-2 border-daun-100 bg-white p-6 shadow-lembut">
+    <li className="rounded-4xl border border-garis bg-white p-6 shadow-lembut">
       <span
         className={`flex h-12 w-12 items-center justify-center rounded-2xl ${gaya}`}
         aria-hidden
@@ -390,7 +390,7 @@ function LapanganKartu({
   isi: string;
 }) {
   return (
-    <li className="rounded-4xl border-2 border-daun-200 bg-white p-6 shadow-lembut">
+    <li className="rounded-4xl border border-daun-200/70 bg-white p-6 shadow-lembut">
       <p className="flex items-center gap-2 font-display text-sm font-extrabold tracking-wide text-air-700 uppercase">
         <MapPin size={16} aria-hidden />
         {tempat}
@@ -411,7 +411,7 @@ function AmpasKartu({
   isi: string;
 }) {
   return (
-    <li className="rounded-4xl border-2 border-surya-200 bg-surya-50 p-6">
+    <li className="rounded-4xl border border-surya-200/70 bg-surya-50 p-6">
       <span
         className="flex h-11 w-11 items-center justify-center rounded-full bg-surya-400 font-display text-xl font-black text-surya-900"
         aria-hidden

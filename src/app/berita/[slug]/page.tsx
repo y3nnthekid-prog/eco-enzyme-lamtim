@@ -46,23 +46,27 @@ export default async function HalamanBerita({
 
   return (
     <>
-      <div className="pola-daun border-b-2 border-daun-100 bg-daun-50/60">
+      <div className="pola-daun overflow-hidden border-b border-garis">
         <Wadah lebar="sempit" className="py-12 sm:py-16">
           <Link
             href="/berita"
-            className="inline-flex items-center gap-2 font-display font-extrabold text-air-700 hover:underline"
+            className="group inline-flex items-center gap-2 font-display font-extrabold text-air-700"
           >
-            <ArrowLeft size={20} aria-hidden />
-            Semua berita
+            <ArrowLeft
+              size={20}
+              className="transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-x-1 motion-reduce:group-hover:translate-x-0"
+              aria-hidden
+            />
+            <span className="group-hover:underline">Semua berita</span>
           </Link>
 
-          <p className="mt-6 inline-block rounded-full bg-white px-4 py-1.5 text-sm font-extrabold tracking-wide text-daun-700 uppercase shadow-lembut">
-            {berita.kategori}
-          </p>
-          <h1 className="mt-4 text-3xl text-daun-900 sm:text-4xl lg:text-5xl">
+          <p className="kicker masuk mt-8">{berita.kategori}</p>
+          <h1 className="masuk mt-4 text-[2.1rem] leading-[1.1] tracking-[-0.025em] text-daun-900 sm:text-5xl [--jeda:70ms]">
             {berita.judul}
           </h1>
-          <p className="mt-5 text-lg text-tinta-lembut">{berita.ringkasan}</p>
+          <p className="masuk mt-5 text-lg leading-relaxed text-tinta-lembut [--jeda:140ms]">
+            {berita.ringkasan}
+          </p>
 
           <dl className="mt-7 flex flex-wrap gap-x-6 gap-y-2 text-tinta-lembut">
             <div className="flex items-center gap-2">
@@ -97,7 +101,7 @@ export default async function HalamanBerita({
             dangerouslySetInnerHTML={{ __html: html }}
           />
 
-          <div className="mt-14 border-t-2 border-daun-100 pt-10">
+          <div className="mt-14 border-t border-garis pt-10">
             <Tombol href="/berita" varian="garis">
               ← Kembali ke daftar berita
             </Tombol>
@@ -115,7 +119,7 @@ export default async function HalamanBerita({
               {lainnya.map((b) => (
                 <li key={b.slug}>
                   <Link href={`/berita/${b.slug}`} className="group block h-full">
-                    <Kartu className="flex h-full flex-col transition-shadow group-hover:shadow-angkat">
+                    <Kartu className="flex h-full flex-col angkat">
                       <p className="text-sm font-bold text-tinta-lembut">
                         {tanggalIndonesia(b.tanggal)}
                       </p>

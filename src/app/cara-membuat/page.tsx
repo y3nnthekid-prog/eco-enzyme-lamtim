@@ -65,7 +65,7 @@ export default function CaraMembuat() {
                 <li key={d.href}>
                   <a
                     href={d.href}
-                    className="inline-flex items-center gap-2 rounded-full border-2 border-daun-200 bg-white px-4 py-2 font-bold text-daun-800 transition-colors hover:bg-daun-100"
+                    className="inline-flex items-center gap-2 rounded-full border border-daun-200/70 bg-white px-4 py-2 font-bold text-daun-800 transition-colors hover:bg-daun-100"
                   >
                     <span className="font-display text-daun-700">{i + 1}</span>
                     {d.label}
@@ -815,7 +815,7 @@ function AlatKartu({
   opsional?: boolean;
 }) {
   return (
-    <li className="flex items-center gap-4 rounded-3xl border-2 border-daun-100 bg-white p-5 shadow-lembut">
+    <li className="flex items-center gap-4 rounded-3xl border border-garis bg-white p-5 shadow-lembut">
       <span
         className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-daun-100 text-daun-700"
         aria-hidden

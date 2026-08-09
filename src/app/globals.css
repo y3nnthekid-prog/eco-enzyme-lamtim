@@ -43,6 +43,8 @@
   --color-tinta: #16241c;
   --color-tinta-lembut: #4b5c50;
   --color-krem: #fbfcf8;
+  /* Garis rambut — jauh lebih tenang daripada bingkai 2px di setiap kartu */
+  --color-garis: #e6ece2;
 
   --font-display: var(--font-nunito), ui-sans-serif, system-ui, sans-serif;
   --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
@@ -50,8 +52,18 @@
   --radius-4xl: 2rem;
   --radius-5xl: 2.5rem;
 
-  --shadow-lembut: 0 1px 2px rgb(22 36 28 / 0.04), 0 8px 24px -12px rgb(22 36 28 / 0.18);
-  --shadow-angkat: 0 2px 4px rgb(22 36 28 / 0.05), 0 18px 40px -18px rgb(22 36 28 / 0.25);
+  /* Bayangan berlapis: lapisan rapat memberi definisi tepi, lapisan lebar
+     memberi kedalaman. Satu bayangan saja selalu terlihat seperti stiker. */
+  --shadow-lembut:
+    0 1px 1px rgb(22 36 28 / 0.03), 0 4px 10px -6px rgb(22 36 28 / 0.1),
+    0 12px 28px -18px rgb(22 36 28 / 0.14);
+  --shadow-angkat:
+    0 1px 1px rgb(22 36 28 / 0.04), 0 8px 18px -8px rgb(22 36 28 / 0.14),
+    0 26px 48px -26px rgb(22 36 28 / 0.22);
+
+  /* Lengkung gerak. Keluar cepat lalu mengendap pelan — terasa seperti benda
+     nyata yang berhenti karena gesekan, bukan animasi linear. */
+  --gerak-halus: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 /* ---- Pengatur ukuran teks (aksesibilitas untuk lansia & anak) ---- */
@@ -119,17 +131,119 @@ p {
   border-radius: 4px;
 }
 
-/* ---- Pola latar organik ---- */
+/* ---- Latar ---- */
+
+/*
+ * Satu sapuan hijau lembut yang berangkat dari kiri-atas, bukan tiga bola
+ * gradien warna-warni. Ditambah butiran halus supaya bidang kosong tidak
+ * terasa seperti plastik.
+ */
 .pola-daun {
+  position: relative;
   background-image:
-    radial-gradient(circle at 12% 18%, rgb(108 194 74 / 0.16) 0, transparent 42%),
-    radial-gradient(circle at 88% 8%, rgb(27 143 209 / 0.14) 0, transparent 40%),
-    radial-gradient(circle at 70% 92%, rgb(242 145 27 / 0.12) 0, transparent 45%);
+    radial-gradient(120% 85% at 8% -10%, rgb(108 194 74 / 0.15) 0, transparent 60%),
+    radial-gradient(90% 70% at 100% 0%, rgb(27 143 209 / 0.09) 0, transparent 55%);
+}
+
+.pola-daun::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.5;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
 }
 
 .pola-titik {
-  background-image: radial-gradient(rgb(108 194 74 / 0.28) 1.2px, transparent 1.2px);
-  background-size: 18px 18px;
+  background-image: radial-gradient(rgb(108 194 74 / 0.22) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+/* ---- Kicker: pengganti "pil label" yang seragam di tiap seksi ---- */
+.kicker {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-daun-700);
+}
+.kicker::before {
+  content: "";
+  width: 1.75rem;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--color-surya-400);
+  flex: none;
+}
+
+/* ============================================================
+   Gerak
+   Semua kelas di bawah hanya aktif setelah JavaScript memasang
+   `js-siap` pada <html>. Tanpa JavaScript isi halaman tetap
+   tampil utuh — animasi tidak boleh jadi syarat keterbacaan.
+   ============================================================ */
+
+@media (prefers-reduced-motion: no-preference) {
+  html.js-siap .muncul {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  html.js-siap .muncul.tampil {
+    opacity: 1;
+    transform: none;
+    transition:
+      opacity 0.7s var(--gerak-halus),
+      transform 0.7s var(--gerak-halus);
+    transition-delay: var(--jeda, 0ms);
+  }
+
+  /* Garis bawah tulisan tangan di hero, digambar sekali dari kiri ke kanan */
+  .coret path {
+    stroke-dasharray: 340;
+    stroke-dashoffset: 340;
+    animation: gambar-coret 1s var(--gerak-halus) 0.75s forwards;
+  }
+  @keyframes gambar-coret {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  /* Masuk saat halaman dimuat, dipakai di bagian hero */
+  .masuk {
+    animation: naik-halus 0.85s var(--gerak-halus) both;
+    animation-delay: var(--jeda, 0ms);
+  }
+  @keyframes naik-halus {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
+
+/* Angkat tipis saat kursor menyentuh kartu yang bisa diklik */
+.angkat {
+  transition:
+    transform 0.35s var(--gerak-halus),
+    box-shadow 0.35s var(--gerak-halus),
+    border-color 0.35s var(--gerak-halus);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .angkat:hover {
+    transform: translateY(-3px);
+  }
+}
+.angkat:hover {
+  box-shadow: var(--shadow-angkat);
 }
 
 /* ---- Isi artikel berita (hasil render Markdown) ---- */

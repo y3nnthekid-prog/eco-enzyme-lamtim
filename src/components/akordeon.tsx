@@ -36,7 +36,7 @@ export function ItemAkordeon({
 }) {
   const l = gayaLencana[lencana];
   return (
-    <details className="group rounded-3xl border-2 border-daun-100 bg-white open:border-daun-300 open:shadow-lembut">
+    <details className="group rounded-3xl border border-garis bg-white open:border-daun-300 open:shadow-lembut">
       <summary className="flex cursor-pointer list-none items-start gap-3 p-5 font-display text-lg font-extrabold text-daun-900 hover:bg-daun-50 group-open:rounded-t-3xl [&::-webkit-details-marker]:hidden">
         <ChevronDown
           size={24}

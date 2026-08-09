@@ -10,6 +10,7 @@ import { PengaturTeks } from "@/components/pengatur-teks";
 
 export function KepalaSitus() {
   const [terbuka, setTerbuka] = useState(false);
+  const [tergulir, setTergulir] = useState(false);
   const pathname = usePathname();
   const [jalanTerakhir, setJalanTerakhir] = useState(pathname);
 
@@ -27,11 +28,26 @@ export function KepalaSitus() {
     };
   }, [terbuka]);
 
+  // Header baru "mendarat" setelah halaman digulir sedikit: garis bawah dan
+  // bayangan tipis muncul. Saat di puncak halaman ia menyatu dengan hero.
+  useEffect(() => {
+    const periksa = () => setTergulir(window.scrollY > 8);
+    periksa();
+    window.addEventListener("scroll", periksa, { passive: true });
+    return () => window.removeEventListener("scroll", periksa);
+  }, []);
+
   const aktif = (href: string) =>
     href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   return (
-    <header className="tanpa-cetak sticky top-0 z-50 border-b-2 border-daun-100 bg-krem/90 backdrop-blur-md">
+    <header
+      className={`tanpa-cetak sticky top-0 z-50 transition-[background-color,border-color,box-shadow] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+        tergulir || terbuka
+          ? "border-b border-garis bg-krem/85 shadow-[0_1px_0_rgb(22_36_28/0.04),0_8px_24px_-16px_rgb(22_36_28/0.25)] backdrop-blur-md"
+          : "border-b border-transparent bg-transparent"
+      }`}
+    >
       <div className="mx-auto flex max-w-7xl items-center gap-2 px-4 py-3 sm:gap-3 sm:px-6">
         <Link
           href="/"
