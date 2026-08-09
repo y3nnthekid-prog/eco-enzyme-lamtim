@@ -44,10 +44,8 @@ export const metadata: Metadata = {
     description: situs.deskripsi,
     images: ["/logo-een-lamtim.png"],
   },
-  icons: {
-    icon: "/logo-een-lamtim.png",
-    apple: "/logo-een-lamtim.png",
-  },
+  // Ikon tab diambil dari src/app/icon.png dan src/app/apple-icon.png lewat
+  // konvensi berkas Next.js, jadi tidak perlu didaftarkan manual di sini.
 };
 
 export const viewport: Viewport = {
