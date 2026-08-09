@@ -85,9 +85,21 @@ domain sebenarnya setelah situs dipasang.
 
 ## Menaikkan ke internet (Vercel)
 
-Situs tayang di **<https://eco-enzyme-lamtim.vercel.app>**
+Situs tayang di **<https://eenlamtim.com>**
 (proyek Vercel `yennthekid/eco-enzyme-lamtim`, tersambung ke repositori
 GitHub `y3nnthekid-prog/eco-enzyme-lamtim`).
+
+Alamat lain yang mengarah ke situs yang sama:
+
+| Alamat                        | Perilaku                          |
+| ----------------------------- | --------------------------------- |
+| `eenlamtim.com`               | alamat utama                      |
+| `www.eenlamtim.com`           | dialihkan ke alamat utama         |
+| `eenlamtim.site`              | dialihkan ke `eenlamtim.com`      |
+| `www.eenlamtim.site`          | dialihkan ke `eenlamtim.com`      |
+| `eco-enzyme-lamtim.vercel.app`| tetap hidup sebagai cadangan      |
+
+Pengalihan dari `.site` diatur di `next.config.ts`.
 
 Penayangannya otomatis — cukup dorong perubahan ke GitHub:
 

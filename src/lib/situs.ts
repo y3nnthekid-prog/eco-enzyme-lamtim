@@ -5,7 +5,7 @@ export const situs = {
   tagline: "Sampah dapur jadi cairan serba guna untuk rumah, kebun, dan Bumi.",
   deskripsi:
     "Pusat belajar eco enzyme untuk warga Kabupaten Lampung Timur. Belajar apa itu eco enzyme, manfaatnya, cara membuat, dan cara memakainya — dengan bahasa yang mudah dipahami semua umur.",
-  url: "https://eco-enzyme-lamtim.vercel.app",
+  url: "https://eenlamtim.com",
   email: "ecoenzymelampungtimur@gmail.com",
   whatsapp: "",
   instagram: "",
