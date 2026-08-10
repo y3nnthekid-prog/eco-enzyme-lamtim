@@ -6,7 +6,7 @@ kategori: "Kegiatan"
 penulis: "Tim EEN Lampung Timur"
 lokasi: "Way Jepara, Lampung Timur"
 gambar: "/berita/gebyar-way-jepara-panggung-utama.jpg"
-gambarKeterangan: "Wakil Bupati Lampung Timur Hi. Azwar Hadi bersama panitia dan peserta Gebyar HUT Ke-81 RI di Lapangan Merdeka, Way Jepara, Senin (10/8). Foto: Tim EEN Lampung Timur"
+gambarKeterangan: "Wakil Bupati Lampung Timur Hi. Azwar Hadi bersama panitia dan peserta Gebyar HUT Ke-81 RI di Lapangan Merdeka, Way Jepara, Senin (10/8). Foto: Panitia HUT RI"
 ---
 
 **WAY JEPARA** — Ribuan warga Kecamatan Way Jepara memadati Lapangan Merdeka
@@ -30,7 +30,7 @@ menggelar kegiatan berskala besar.
 > "Luar biasa, Kecamatan Way Jepara ini sering melaksanakan acara besar dan
 > meriah seperti ini," ujarnya.
 
-![Barisan galon berisi bahan eco enzyme berjajar di tepi lapangan, disiapkan untuk lokakarya bersama warga.](/berita/barisan-galon-eco-enzyme.jpg)
+![Barisan galon berisi bahan eco enzyme berjajar di tepi lapangan, disiapkan untuk lokakarya bersama warga. Foto: Panitia HUT RI](/berita/barisan-galon-eco-enzyme.jpg)
 
 ## Seratus botol dan sepuluh galon
 
@@ -39,11 +39,16 @@ sekaligus pendukung acara. Selain membagikan lebih dari 100 botol eco enzyme
 gratis kepada warga, relawan komunitas mengajak pengunjung mempraktikkan
 langsung cara membuatnya melalui lokakarya pembuatan 10 galon eco enzyme.
 
+Berjajar di atas rumput lapangan, peserta menakar air, gula, dan potongan sisa
+buah ke dalam galon satu per satu. Matahari sudah cukup terik menjelang siang,
+tetapi peserta tetap bersemangat menuntaskan racikan masing-masing hingga
+kesepuluh galon terisi penuh.
+
 Di stan komunitas, warga dapat melihat langsung hasil fermentasi dalam berbagai
 usia dan warna, mulai dari cokelat muda hingga cokelat pekat. Ditampilkan pula
 produk turunannya, seperti sabun natural berbahan eco enzyme.
 
-![Relawan Eco Enzyme Nusantara Kabupaten Lampung Timur di stan pameran, dengan puluhan botol hasil fermentasi yang siap dibagikan kepada warga.](/berita/relawan-eco-enzyme-lampung-timur.jpg)
+![Relawan Eco Enzyme Nusantara Kabupaten Lampung Timur di stan pameran, dengan puluhan botol hasil fermentasi yang siap dibagikan kepada warga. Foto: Panitia HUT RI](/berita/relawan-eco-enzyme-lampung-timur.jpg)
 
 Pembagian dan lokakarya ini merupakan bagian dari dukungan komunitas terhadap
 Gerakan Masyarakat Hidup Sehat (Germas). Eco enzyme dibuat dari sisa buah dan
@@ -52,7 +57,7 @@ sayur, gula, serta air dengan perbandingan 1 : 3 : 10, lalu difermentasi selama
 sintetis, sekaligus mengurangi sampah organik yang selama ini berakhir di tempat
 pembuangan akhir.
 
-![Produk turunan eco enzyme yang ditampilkan di stan, termasuk sabun natural berbahan eco enzyme.](/berita/produk-turunan-eco-enzyme.jpg)
+![Produk turunan eco enzyme yang ditampilkan di stan, termasuk sabun natural berbahan eco enzyme. Foto: Panitia HUT RI](/berita/produk-turunan-eco-enzyme.jpg)
 
 ## Periksa kesehatan dan donor darah
 
