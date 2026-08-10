@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { CalendarDays, MapPin } from "lucide-react";
 import { Bagian, Kartu, KepalaLaman, Wadah } from "@/components/ui";
@@ -45,8 +46,20 @@ export default function DaftarBerita() {
               {/* Berita paling baru ditampilkan besar */}
               <Link
                 href={`/berita/${utama.slug}`}
-                className="group block rounded-5xl border border-daun-200/70 bg-white p-7 shadow-lembut angkat sm:p-10"
+                className="angkat group block overflow-hidden rounded-5xl border border-daun-200/70 bg-white shadow-lembut"
               >
+                {utama.gambar && (
+                  <Image
+                    src={utama.gambar}
+                    alt=""
+                    width={1600}
+                    height={1067}
+                    priority
+                    sizes="(min-width: 1024px) 72rem, 100vw"
+                    className="h-56 w-full object-cover sm:h-80"
+                  />
+                )}
+                <div className="p-7 sm:p-10">
                 <p className="flex flex-wrap items-center gap-3 text-sm font-bold">
                   <span className="rounded-full bg-surya-400 px-3 py-1 text-surya-900">
                     Terbaru
@@ -74,6 +87,7 @@ export default function DaftarBerita() {
                 <span className="mt-5 inline-block font-display text-lg font-extrabold text-air-700">
                   Baca selengkapnya →
                 </span>
+                </div>
               </Link>
 
               {sisanya.length > 0 && (
@@ -82,8 +96,19 @@ export default function DaftarBerita() {
                     <li key={b.slug}>
                       <Link
                         href={`/berita/${b.slug}`}
-                        className="group flex h-full flex-col rounded-4xl border border-garis bg-white p-6 shadow-lembut angkat"
+                        className="angkat group flex h-full flex-col overflow-hidden rounded-4xl border border-garis bg-white shadow-lembut"
                       >
+                        {b.gambar && (
+                          <Image
+                            src={b.gambar}
+                            alt=""
+                            width={800}
+                            height={534}
+                            sizes="(min-width: 1024px) 24rem, (min-width: 768px) 50vw, 100vw"
+                            className="h-44 w-full object-cover"
+                          />
+                        )}
+                        <div className="flex flex-1 flex-col p-6">
                         <p className="flex flex-wrap items-center gap-2 text-sm font-bold">
                           <span className="rounded-full bg-daun-100 px-3 py-1 text-daun-800">
                             {b.kategori}
@@ -101,6 +126,7 @@ export default function DaftarBerita() {
                         <span className="mt-4 font-display font-extrabold text-air-700">
                           Baca selengkapnya →
                         </span>
+                        </div>
                       </Link>
                     </li>
                   ))}

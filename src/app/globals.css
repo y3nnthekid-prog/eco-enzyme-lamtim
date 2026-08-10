@@ -357,6 +357,30 @@ p {
   width: 100%;
   height: auto;
 }
+
+/* Foto dalam berita beserta keterangannya. Foto dibiarkan sedikit melebar
+   melewati kolom teks supaya terasa seperti halaman berita, bukan lampiran. */
+.artikel figure {
+  margin-block: 2.25rem;
+}
+@media (min-width: 40rem) {
+  .artikel figure {
+    margin-inline: -2.5rem;
+  }
+}
+.artikel figcaption {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--color-tinta-lembut);
+  border-left: 3px solid var(--color-daun-300);
+  padding-left: 0.85rem;
+}
+@media (min-width: 40rem) {
+  .artikel figcaption {
+    margin-inline: 2.5rem;
+  }
+}
 .artikel strong {
   color: var(--color-daun-900);
   font-weight: 700;

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, CalendarDays, MapPin, User } from "lucide-react";
@@ -28,6 +29,9 @@ export async function generateMetadata({
       title: berita.judul,
       description: berita.ringkasan,
       publishedTime: berita.tanggal,
+      // Foto berita dipakai sebagai gambar bagikan. Ini yang muncul saat
+      // tautannya dikirim di WhatsApp — jalur penyebaran utama di sini.
+      images: berita.gambar ? [berita.gambar] : undefined,
     },
   };
 }
@@ -93,6 +97,27 @@ export default async function HalamanBerita({
           </dl>
         </Wadah>
       </div>
+
+      {berita.gambar && (
+        <Wadah lebar="normal" className="pt-10 sm:pt-14">
+          <figure>
+            <Image
+              src={berita.gambar}
+              alt={berita.gambarKeterangan ?? berita.judul}
+              width={1600}
+              height={1067}
+              priority
+              sizes="(min-width: 1024px) 64rem, 100vw"
+              className="h-auto w-full rounded-4xl border border-garis object-cover shadow-lembut"
+            />
+            {berita.gambarKeterangan && (
+              <figcaption className="mt-3 text-sm leading-relaxed text-tinta-lembut">
+                {berita.gambarKeterangan}
+              </figcaption>
+            )}
+          </figure>
+        </Wadah>
+      )}
 
       <Bagian>
         <Wadah lebar="sempit">
