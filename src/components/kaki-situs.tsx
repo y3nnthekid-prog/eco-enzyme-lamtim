@@ -74,11 +74,26 @@ export function KakiSitus() {
               {situs.email}
             </a>
           </div>
-          <p className="mt-6 text-sm text-daun-200">
-            Materi edukasi di situs ini bersumber dari{" "}
-            <em>Modul Kelas Belajar Eco-Enzyme</em> Ngajaga Bumi dan Persatuan
-            Enzim Alam Sekitar Malaysia.
-          </p>
+          {/* Dua modul disebut terpisah, bukan digabung dalam satu kalimat.
+              Yang 2023 adalah acuan utama dan sudah memperbarui beberapa
+              panduan di modul 2020 — pembaca berhak tahu mana yang mana. */}
+          <div className="mt-6 text-sm text-daun-200">
+            <p className="font-bold text-daun-100">Sumber materi edukasi</p>
+            <ol className="mt-2 grid gap-1.5">
+              <li>
+                1. <em>Modul Dasar Pembuatan Eco Enzyme bagi Pemula</em> — Eco
+                Enzyme Nusantara, revisi Juni 2023. Acuan utama.
+              </li>
+              <li>
+                2. <em>Modul Kelas Belajar Eco-Enzyme</em> — Tim Ngajaga Bumi,
+                Agustus 2020.
+              </li>
+            </ol>
+            <p className="mt-2">
+              Tabel takaran pemakaian dari Persatuan Enzim Alam Sekitar
+              Malaysia.
+            </p>
+          </div>
         </div>
       </div>
 

@@ -44,6 +44,8 @@ buah ke dalam galon satu per satu. Matahari sudah cukup terik menjelang siang,
 tetapi peserta tetap bersemangat menuntaskan racikan masing-masing hingga
 kesepuluh galon terisi penuh.
 
+![Peserta berjajar di atas rumput Lapangan Merdeka menakar bahan eco enzyme ke dalam galon. Meski matahari mulai terik, peserta tetap bersemangat menuntaskan racikannya. Foto: Panitia HUT RI](/berita/peserta-meracik-eco-enzyme.jpg)
+
 Di stan komunitas, warga dapat melihat langsung hasil fermentasi dalam berbagai
 usia dan warna, mulai dari cokelat muda hingga cokelat pekat. Ditampilkan pula
 produk turunannya, seperti sabun natural berbahan eco enzyme.
